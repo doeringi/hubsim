@@ -1,0 +1,7 @@
+{
+    "agents": {
+        "first_name": "agent1",
+        "last_name": "agent1",
+        "seed_memory": "You are agent 1 and you..."
+    }
+}
