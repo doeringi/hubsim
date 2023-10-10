@@ -15,5 +15,5 @@ COPY . .
 # Install requirements from docker-requirements.txt
 RUN pip install -r docker-requirements.txt
 
-CMD ["python", "main.py"]
+CMD ["/bin/bash"]
 
