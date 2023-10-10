@@ -1,0 +1,9 @@
+transformers
+accelerate
+bitsandbytes
+einops
+datasets
+pandas
+langchain
+scikit-learn
+numpy
