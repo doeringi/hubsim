@@ -1,14 +1,14 @@
 from uuid import UUID
 from typing import Optional
+from components.agent.AbstractBaseAgent import AbstractBaseAgent
 
 
-class BaseAgent:
+class BaseAgent(AbstractBaseAgent):
     id: UUID
     first_name: str
     last_name: str
     seed_memory: str  # initial memory specifying the agents biography
     current_action: str
-    action_emojie: str
     inner_voice: str  # user commands
     memories: dict
     reflections: dict
@@ -37,3 +37,6 @@ class BaseAgent:
         self.memories = memories
         self.reflections = reflections
         self.plans = plans
+
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"

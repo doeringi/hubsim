@@ -1,4 +1,10 @@
 {
+    "general": {
+        "model": {
+            "model_id": "google/flan-t5-small",
+            "task": "text2text-generation"
+        }
+    },
     "agents": {
         "first_name": "agent1",
         "last_name": "agent1",
