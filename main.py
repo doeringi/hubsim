@@ -1,18 +1,15 @@
-from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
-from langchain.llms import HuggingFacePipeline
+from components.llm.LocalLLM import LLM
 
-model = AutoModelForSeq2SeqLM.from_pretrained("local-llm/google/flan-t5-small")
+llm = LLM()
 
-tokenizer = AutoTokenizer.from_pretrained("local-llm/google/flan-t5-small")
+llm.download_llm()
 
-pipe = pipeline(task="text2text-generation", model=model, tokenizer=tokenizer)
+llm.load_llm()
 
-llm = HuggingFacePipeline(pipeline=pipe)
+t5_small_local_llm = llm.get_llm
 
-prompt = (
-    "You are John, Sara your wife asks what you want to eat for dinner. Your answer:"
-)
+prompt = "You are John. Sara your wife asks what you want to eat for dinner. Your answer to Saras question:"
 
-output = llm(prompt)
+output = t5_small_local_llm(prompt)
 
 print(output)
