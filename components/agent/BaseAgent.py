@@ -1,9 +1,10 @@
 from uuid import UUID
 from typing import Optional
-from components.agent.AbstractBaseAgent import AbstractBaseAgent
+from components.agent import AbstractBaseAgent
+from components.memory.observer import AbstractObserver
 
 
-class BaseAgent(AbstractBaseAgent):
+class BaseAgent(AbstractBaseAgent, AbstractObserver):
     id: UUID
     first_name: str
     last_name: str
@@ -40,3 +41,6 @@ class BaseAgent(AbstractBaseAgent):
 
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
+
+    def observe(self) -> str:
+        pass
