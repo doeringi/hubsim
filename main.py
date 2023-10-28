@@ -1,6 +1,6 @@
-from components.llm.LocalLLM import LLM
+from components.llm.LocalLLM import LocalLLM
 
-llm = LLM()
+llm = LocalLLM()
 
 llm.download_llm()
 

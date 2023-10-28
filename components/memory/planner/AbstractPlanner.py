@@ -9,8 +9,14 @@ class AbstractPlanner(ABC):
     # Reacting and Updating Plans: At every time step in the simulation prompt the language model to decide whether to update the plan or not
 
     @abstractmethod
-    def plan(self):
+    def plan_day(self):
         raise NotImplementedError('Abstract method "plan" must be implemented')
+
+    @abstractmethod
+    def set_daily_goals():
+        raise NotImplementedError(
+            'Abstract method "set_daily_goals" must be implemented'
+        )
 
     @abstractmethod
     def react():

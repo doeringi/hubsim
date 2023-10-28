@@ -11,7 +11,7 @@ class AbstractLLM(ABC):
     model_arguments: dict
 
     def __init__(self):
-        self.model_id = None
+        self.model_id = "google/flan-t5-small"
         self.tokenizer_arguments = {}
         self.model_arguments = None
 
