@@ -1,15 +1,36 @@
-from components.llm.LocalLLM import LocalLLM
+from components.llm.HuggingFaceLLM import HuggingFaceLLM
+import autogen
 
-llm = LocalLLM()
+llm = HuggingFaceLLM()
 
 llm.download_llm()
 
-llm.load_llm()
+config_list = [
+    {
+        "model": "Mistral-7B-Instruct-v0.1",
+        "api_base": "http://localhost:8000/v1",
+        "api_type": "open_ai",
+        "api_key": "NULL",  # just a placeholder
+    }
+]
 
-t5_small_local_llm = llm.get_llm
+llm_config = {"config_list": config_list, "seed": 42}
 
-prompt = "You are Peter. Sara your wife asks what you want to eat for dinner. Your answer to Saras question:"
 
-output = t5_small_local_llm(prompt)
+renter = autogen.AssistantAgent(
+    name="Max Müller",
+    system_message="You are interested in Harald Heines' apartment. The negotiation takes place in the apartment of interest. Negotiate with Harald Heines' about a price you can both agree on.",
+    llm_config=llm_config,
+)
 
-print(output)
+landlord = autogen.AssistantAgent(
+    name="Harald Heine",
+    system_message="You are Harald Heine and you own an apartment. A student called Max Müller wants to rent the apartment from you. Negotiate with Max Müller about a price you can both agree on.",
+    llm_config=llm_config,
+)
+
+groupchat = autogen.GroupChat(agents=[renter, landlord], messages=[], max_round=12)
+
+manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
+
+renter.initiate_chat(manager, message="Hello Mister Heine, how are you?")
