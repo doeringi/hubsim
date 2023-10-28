@@ -7,20 +7,25 @@ from transformers import AutoModelForSeq2SeqLM
 from components.llm.AbstractLLM import AbstractLLM
 
 
-class LLM(AbstractLLM):
+class LocalLLM(AbstractLLM):
     model_id: str
     tokenizer: AutoTokenizer
     llm: BaseLanguageModel
     tokenizer_arguments: dict
     model_arguments: dict
 
-    def __init__(self):
+    def __init__(self, llm: BaseLanguageModel = None):
         self.model_id = "google/flan-t5-small"
+        self.llm = llm
         self.tokenizer_arguments = {}
         self.model_arguments = {
             "temperature": 0.9,
             "max_new_tokens": 50,
         }
+
+    @property
+    def get_llm(self) -> BaseLanguageModel:
+        return self.llm
 
     def download_llm(self):
         model_id = self.get_model_id
