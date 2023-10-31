@@ -3,11 +3,11 @@ from langchain.llms import HuggingFacePipeline
 from langchain.llms.fake import FakeListLLM
 from transformers import pipeline, AutoTokenizer
 import os
-from transformers import AutoModelForSeq2SeqLM
+from transformers import AutoModelForCausalLM
 from components.llm.AbstractLLM import AbstractLLM
 
 
-class LocalLLM(AbstractLLM):
+class HuggingFaceLLM(AbstractLLM):
     model_id: str
     tokenizer: AutoTokenizer
     llm: BaseLanguageModel
@@ -15,7 +15,7 @@ class LocalLLM(AbstractLLM):
     model_arguments: dict
 
     def __init__(self):
-        self.model_id = "google/flan-t5-small"
+        self.model_id = "mistralai/Mistral-7B-Instruct-v0.1"
         self.tokenizer_arguments = {}
         self.model_arguments = {
             "temperature": 0.9,
@@ -25,14 +25,14 @@ class LocalLLM(AbstractLLM):
     def download_llm(self):
         model_id = self.get_model_id
 
-        if not os.path.exists(os.path.join("local-llm", model_id)):
-            os.makedirs(os.path.join("local-llm", model_id))
+        if not os.path.exists(os.path.join("models", model_id)):
+            os.makedirs(os.path.join("models", model_id))
             print("Created directory for LLM")
-            model = AutoModelForSeq2SeqLM.from_pretrained(model_id)
+            model = AutoModelForCausalLM.from_pretrained(model_id)
             tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-            model.save_pretrained(os.path.join("local-llm", model_id))
-            tokenizer.save_pretrained(os.path.join("local-llm", model_id))
+            model.save_pretrained(os.path.join("models", model_id))
+            tokenizer.save_pretrained(os.path.join("models", model_id))
             print("Downloaded LLM")
         else:
             print("LLM already downloaded")
@@ -40,21 +40,18 @@ class LocalLLM(AbstractLLM):
     def load_llm(self) -> BaseLanguageModel:
         model_id = self.get_model_id
 
-        model = AutoModelForSeq2SeqLM.from_pretrained(
-            os.path.join("local-llm", model_id)
+        model = AutoModelForCausalLM.from_pretrained(
+            os.path.join("models", model_id)
         )
         self.tokenizer = AutoTokenizer.from_pretrained(
-            os.path.join("local-llm", model_id)
+            os.path.join("models", model_id)
         )
 
         pipe = pipeline(
-            task="text2text-generation",
+            task="text-generation",
             model=model,
             tokenizer=self.tokenizer,
             model_kwargs=self.get_model_arguments,
         )
 
         self.llm = HuggingFacePipeline(pipeline=pipe)
-
-    def load_fake_llm(self):
-        self.llm = FakeListLLM()

@@ -7,3 +7,6 @@ pandas
 langchain
 scikit-learn
 numpy
+pyautogen
+fastapi
+uvicorn
