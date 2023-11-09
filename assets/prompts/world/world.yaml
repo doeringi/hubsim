@@ -1,0 +1,6 @@
+- id: none
+  content:
+- id: new_york_city_ebad
+  content: The city is New York City. The economy is bad.
+- id: new_york_city_egood
+  content: The city is New York City. The economy is good.
