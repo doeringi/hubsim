@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 from uuid import UUID
 from typing import Optional
 
@@ -43,3 +43,27 @@ class AbstractBaseAgent(ABC):
     @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
+
+    @abstractmethod
+    def init_agent_to_agent_conversation(self) -> list:
+        raise NotImplementedError(
+            'Abstract method "init_agent_to_agent_conversation" must be implemented'
+        )
+
+    @abstractmethod
+    def init_agent_to_user_conversation(self) -> list:
+        raise NotImplementedError(
+            'Abstract method "init_agent_to_user_conversation" must be implemented'
+        )
+
+    @abstractmethod
+    def run_single_factor_experiment(self):
+        raise NotImplementedError(
+            'Abstract method "run_single_factor_experiment" must be implemented'
+        )
+
+    @abstractmethod
+    def save_conversation(self):
+        raise NotImplementedError(
+            'Abstract method "save_conversation" must be implemented'
+        )

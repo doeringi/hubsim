@@ -4,6 +4,8 @@ from components.agent import AbstractBaseAgent
 from components.memory.observer import AbstractObserver
 from components.memory.planner import AbstractPlanner
 from components.memory.planner.prompts import planner_chains
+from autogen import AssistantAgent, UserProxyAgent, GroupChat, GroupChatManager
+import json
 
 
 class BaseAgent(AbstractBaseAgent, AbstractObserver, AbstractPlanner):
@@ -59,3 +61,36 @@ class BaseAgent(AbstractBaseAgent, AbstractObserver, AbstractPlanner):
 
     def update_plan(self):
         pass
+
+    def init_agent_to_agent_conversation(
+        self, agents: list, max_round: int, llm_config
+    ):
+        groupchat = GroupChat(agents=agents, messages=[], max_round=max_round)
+
+        manager = GroupChatManager(groupchat=groupchat, llm_config=llm_config)
+
+        return [groupchat, manager]
+
+    def init_agent_to_user_conversation(
+        self, agents: list, max_round: int, message_history: list, llm_config
+    ):
+        groupchat = GroupChat(
+            agents=agents, messages=message_history, max_round=max_round
+        )
+
+        manager = GroupChatManager(groupchat=groupchat, llm_config=llm_config)
+
+        return [groupchat, manager]
+
+    def run_single_factor_experiment(
+        self,
+        agents: list,
+        init_chat_agent: int,
+        manager: GroupChatManager,
+        init_chat_message: str,
+    ):
+        agents[init_chat_agent].initiate_chat(manager, message=init_chat_message)
+
+    def save_conversation(self, groupchat: GroupChat, path: str):
+        with open("conversation.json", "w") as file:
+            json.dump(groupchat.messages, file)
