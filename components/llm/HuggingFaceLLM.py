@@ -40,12 +40,8 @@ class HuggingFaceLLM(AbstractLLM):
     def load_llm(self) -> BaseLanguageModel:
         model_id = self.get_model_id
 
-        model = AutoModelForCausalLM.from_pretrained(
-            os.path.join("models", model_id)
-        )
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            os.path.join("models", model_id)
-        )
+        model = AutoModelForCausalLM.from_pretrained(os.path.join("models", model_id))
+        self.tokenizer = AutoTokenizer.from_pretrained(os.path.join("models", model_id))
 
         pipe = pipeline(
             task="text-generation",
@@ -55,4 +51,3 @@ class HuggingFaceLLM(AbstractLLM):
         )
 
         self.llm = HuggingFacePipeline(pipeline=pipe)
-        
