@@ -30,7 +30,7 @@ variants = single_factor_variants_renter_name()
 variants = variants
 
 # run configurations
-number_of_experiments = 3
+number_of_experiments = 50
 initial_chat_message = "Hello Mister Heine, thanks for inviting me to see the apartment. Let's talk about the rental price."
 max_rounds = 6
 
@@ -67,7 +67,7 @@ for variant in variants:
                 renter = autogen.AssistantAgent(name=variant[0][1]["name_id"], system_message=variant[0][1]["renter_system_message"], llm_config=llm_config)
                 landlord = autogen.AssistantAgent(name=variant[0][0]["name_id"], system_message=variant[0][0]["landlord_system_message"], llm_config=llm_config)
                 
-                print("Running experiment...")
+                print(f"Running experiment: {str(agent.id)}")
                 conversation = agent.run_agent_to_agent_conversation(agents=[renter, landlord], max_round=max_rounds, llm_config=llm_config, init_chat_message=initial_chat_message)
                 agent.save_conversation(groupchat=conversation, path=variant_folder + "/" + str(agent.id))
                 

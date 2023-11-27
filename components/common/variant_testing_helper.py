@@ -3,7 +3,7 @@ from jinja2 import Template
 import yaml
 
 
-_jinja_template_string = """You are {{name}}. Facts about yourself: {{socio_behavioral}}. Facts about the apartment: {{apartment}}. Your goal: {{target}}. Do not tell anyone the facts above. Don't talk about utilities or anything else, just the rental price. If you reach an agreement, say it like: price = x Euro, where x is the final price that you agreed on. If you didn't agree say: price = 0 Euro."""
+_jinja_template_string = """You are {{name}}. Facts about yourself: {{socio_behavioral}}. Facts about the apartment: {{apartment}}. Your goal: {{target}}. Do not tell anyone the facts above. Don't talk about utilities or anything else. Only talk about the rental price. If you agree with a rental price of the other party, say: "I agree to the price of x Euro", where x is the final price that you agreed on. If you don't want to continue the negotiation, say: "TERMINATE price = none"."""
 
 
 def _load_yaml_data(subfolder: str, yaml_content: str):
