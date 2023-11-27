@@ -151,7 +151,11 @@ def single_factor_variants_renter_name():
             {
                 "name_id": name["id"],
                 "socio_behavioral_id": renter_socio_behavioral[0]["id"],
-                "target_id": renter_target[0]["id"]
+                "target_id": renter_target[0]["id"],
+                "apartment_id": apartment[0]["id"]
+            },
+            {
+                "system_message": render_system_message(name["content"], renter_socio_behavioral[0]["content"], renter_target[0]["content"], apartment[0]["content"])
             }
         )
         for name in renter_name
@@ -162,16 +166,21 @@ def single_factor_variants_renter_name():
             {
                 "name_id": name["id"],
                 "socio_behavioral_id": landlord_socio_behavioral[0]["id"],
-                "target_id": landlord_target[0]["id"]
+                "target_id": landlord_target[0]["id"],
+                "apartment_id": apartment[0]["id"]
+            },
+            {
+                "system_message": render_system_message(name["content"], landlord_socio_behavioral[0]["content"], landlord_target[0]["content"], apartment[0]["content"])
             }
         )
         for name in landlord_name
     ]
     
-    variants = product(landlord, renter)
+    factor_variants = product(landlord, renter)
     
-    for variant in variants: 
-        print(variant)
+    return [
+        variant for variant in factor_variants
+    ]
     
 
 def render_system_message(
@@ -188,7 +197,8 @@ def render_system_message(
 
 
 # example all variants
-single_factor_variants_renter_name()
+output = single_factor_variants_renter_name()
+print(output)
 # all = single_factor_variants_renter_name()
 # print(len(all))
 # print(all)
