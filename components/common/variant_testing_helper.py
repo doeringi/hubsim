@@ -3,12 +3,12 @@ from jinja2 import Template
 import yaml
 
 
-_jinja_template_string = """You are {{name}}. Facts about yourself: {{socio_behavioral}}. Your goal: {{target}}. Facts about the apartment: {{apartment}}."""
+_jinja_template_string = """You are {{name}}. Facts about yourself: {{socio_behavioral}}. Facts about the apartment: {{apartment}}. Your goal: {{target}}. Do not tell anyone the facts above. Don't talk about utilities or anything else, just the rental price. If you reach an agreement, say it like: price = x Euro, where x is the final price that you agreed on. If you didn't agree say: price = 0 Euro."""
 
 
 def _load_yaml_data(subfolder: str, yaml_content: str):
     with open(
-        f"../../assets/prompts/{subfolder}/{yaml_content}.yaml", "r", encoding="utf-8"
+        f"assets/prompts/{subfolder}/{yaml_content}.yaml", "r", encoding="utf-8"
     ) as file:
         return yaml.safe_load(file)
 
