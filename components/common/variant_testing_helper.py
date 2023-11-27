@@ -8,7 +8,7 @@ _jinja_template_string = """You are {{name}}. Facts about yourself: {{socio_beha
 
 def _load_yaml_data(subfolder: str, yaml_content: str):
     with open(
-        f"../../assets/prompts/{subfolder}/{yaml_content}.yaml", "r", encoding="utf-8"
+        f"assets/prompts/{subfolder}/{yaml_content}.yaml", "r", encoding="utf-8"
     ) as file:
         return yaml.safe_load(file)
 
@@ -152,10 +152,8 @@ def single_factor_variants_renter_name():
                 "name_id": name["id"],
                 "socio_behavioral_id": renter_socio_behavioral[0]["id"],
                 "target_id": renter_target[0]["id"],
-                "apartment_id": apartment[0]["id"]
-            },
-            {
-                "system_message": render_system_message(name["content"], renter_socio_behavioral[0]["content"], renter_target[0]["content"], apartment[0]["content"])
+                "apartment_id": apartment[0]["id"],
+                "renter_system_message": render_system_message(name["content"], renter_socio_behavioral[0]["content"], renter_target[0]["content"], apartment[0]["content"])
             }
         )
         for name in renter_name
@@ -167,20 +165,19 @@ def single_factor_variants_renter_name():
                 "name_id": name["id"],
                 "socio_behavioral_id": landlord_socio_behavioral[0]["id"],
                 "target_id": landlord_target[0]["id"],
-                "apartment_id": apartment[0]["id"]
-            },
-            {
-                "system_message": render_system_message(name["content"], landlord_socio_behavioral[0]["content"], landlord_target[0]["content"], apartment[0]["content"])
+                "apartment_id": apartment[0]["id"],
+                "landlord_system_message": render_system_message(name["content"], landlord_socio_behavioral[0]["content"], landlord_target[0]["content"], apartment[0]["content"])
             }
         )
         for name in landlord_name
     ]
     
     factor_variants = product(landlord, renter)
+    factor_variants = list(factor_variants)
     
-    return [
-        variant for variant in factor_variants
-    ]
+    variants = [[variant] for variant in factor_variants]
+    
+    return variants
     
 
 def render_system_message(
@@ -197,10 +194,13 @@ def render_system_message(
 
 
 # example all variants
-output = single_factor_variants_renter_name()
-print(output)
+# output = single_factor_variants_renter_name()
+# print(output)
 # all = single_factor_variants_renter_name()
 # print(len(all))
 # print(all)
 # print(all[0][0])
 # print(all[0][0][1])
+# print(output[0][1]["renter_system_message"])
+# for variant in output:
+#     print(f"Variant:" + str(variant[0][0]["landlord_system_message"]))
