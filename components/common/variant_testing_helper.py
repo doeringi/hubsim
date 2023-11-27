@@ -8,7 +8,7 @@ _jinja_template_string = """You are {{name}}. Facts about yourself: {{socio_beha
 
 def _load_yaml_data(subfolder: str, yaml_content: str):
     with open(
-        f"assets/prompts/{subfolder}/{yaml_content}.yaml", "r", encoding="utf-8"
+        f"../../assets/prompts/{subfolder}/{yaml_content}.yaml", "r", encoding="utf-8"
     ) as file:
         return yaml.safe_load(file)
 
@@ -95,7 +95,7 @@ def all_variants():
     return [(variant) for variant in all_variants]
 
 
-def single_factor_variants():
+def single_factor_variants_apartment():
     apartment = _load_product_config()
     # landlord_renter = landlord_renter_combination()
 
@@ -141,6 +141,39 @@ def single_factor_variants():
     ]
 
 
+def single_factor_variants_renter_name():
+    apartment = list(_load_product_config())
+    landlord_name, landlord_socio_behavioral, landlord_target = _load_landlord_config()
+    renter_name, renter_socio_behavioral, renter_target = _load_renter_config()
+    
+    renter = [
+        (
+            {
+                "name_id": name["id"],
+                "socio_behavioral_id": renter_socio_behavioral[0]["id"],
+                "target_id": renter_target[0]["id"]
+            }
+        )
+        for name in renter_name
+    ]
+    
+    landlord = [
+        (
+            {
+                "name_id": name["id"],
+                "socio_behavioral_id": landlord_socio_behavioral[0]["id"],
+                "target_id": landlord_target[0]["id"]
+            }
+        )
+        for name in landlord_name
+    ]
+    
+    variants = product(landlord, renter)
+    
+    for variant in variants: 
+        print(variant)
+    
+
 def render_system_message(
     name: str, socio_behavioral: str, target: str, apartment: str
 ) -> str:
@@ -155,8 +188,9 @@ def render_system_message(
 
 
 # example all variants
-all = single_factor_variants()
-print(len(all))
-print(all)
+single_factor_variants_renter_name()
+# all = single_factor_variants_renter_name()
+# print(len(all))
+# print(all)
 # print(all[0][0])
 # print(all[0][0][1])
