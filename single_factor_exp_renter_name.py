@@ -1,4 +1,4 @@
-from components.agent.BaseAgent import BaseAgent
+from components.experiment.BaseExperiment import BaseExperiment
 from components.common.variant_testing_helper import single_factor_variants_renter_name
 import autogen
 import json
@@ -10,7 +10,7 @@ import subprocess
 
 config_list = [
     {
-        "model": "Mistral-7B-Instruct-v0.1",
+        "model": "Yi-6B-Chat-8bits",
         "api_base": "http://localhost:8000/v1",
         "api_type": "open_ai",
         "api_key": "NULL",  # just a placeholder
@@ -30,26 +30,17 @@ variants = single_factor_variants_renter_name()
 variants = variants
 
 # run configurations
-number_of_experiments = 2
+number_of_experiments = 50
 initial_chat_message = "Hello Mister Heine, thanks for inviting me to see the apartment. Let's talk about the rental price."
 max_rounds = 6
+model_path =  "01-ai/Yi-6B-Chat-8bits"
 
-# needed for restart after Timeout Error
-def restart_fastchat():
-    
-    fastchat_dir = "FastChat" 
-    commands = [
-        "python -m fastchat.serve.controller",
-        "python -m fastchat.serve.model_worker --model-path ../models/mistralai/Mistral-7B-Instruct-v0.1",
-        "python -m fastchat.serve.openai_api_server --host localhost --port 8000"
-    ]
-    
-    for command in commands:
-        full_command = f"cd d/ {fastchat_dir} && {command}"
-        subprocess.Popen(["start", "cmd", "/k", full_command], shell=True)
+# start fastchat once
+helper = BaseExperiment()
+helper.start_fastchat(model_path=model_path)
 
-for variant in variants[7]:
-    variant_folder = "single-factor-experiments/" + variant[1]["name_id"] # create a folder for renter name
+for variant in variants:
+    variant_folder = "single-factor-experiments/" + variant[0][1]["name_id"] # create a folder for renter name
     
     if not os.path.exists(variant_folder):
             os.makedirs(variant_folder)
@@ -62,21 +53,20 @@ for variant in variants[7]:
         attempt = 0
         while attempt < max_retries:
             try:
-                agent = BaseAgent()
                 
-                renter = autogen.AssistantAgent(name=variant[1]["name_id"], system_message=variant[1]["renter_system_message"], llm_config=llm_config)
-                landlord = autogen.AssistantAgent(name=variant[0]["name_id"], system_message=variant[0]["landlord_system_message"], llm_config=llm_config)
+                experiment_helper = BaseExperiment()
                 
-                print(f"Running experiment: {str(agent.id)}")
-                conversation = agent.run_agent_to_agent_conversation(agents=[renter, landlord], max_round=max_rounds, llm_config=llm_config, init_chat_message=initial_chat_message)
-                agent.save_conversation(groupchat=conversation, path=variant_folder + "/" + str(agent.id))
+                renter = autogen.AssistantAgent(name=variant[0][1]["name_id"], system_message=variant[0][1]["renter_system_message"], llm_config=llm_config)
+                landlord = autogen.AssistantAgent(name=variant[0][0]["name_id"], system_message=variant[0][0]["landlord_system_message"], llm_config=llm_config)
+                
+                print(f"Running experiment: {str(experiment_helper.id)}")
+                conversation = experiment_helper.run_agent_to_agent_conversation(agents=[renter, landlord], max_round=max_rounds, llm_config=llm_config, init_chat_message=initial_chat_message)
+                experiment_helper.save_conversation(groupchat=conversation, path=variant_folder + "/" + str(experiment_helper.id))
                 
                 if os.path.exists(".cache"):
                     shutil.rmtree(".cache")
                     
-                #start FastChat new
-                    
-                print(f"Experiment with the id {agent.id} succeeded.")
+                print(f"Experiment with the id {experiment_helper.id} succeeded.")
                 break
             except openai.error.Timeout as e:
                 print("Timeout Error. Trying again...")
@@ -86,7 +76,9 @@ for variant in variants[7]:
                     shutil.rmtree(".cache")
                     
                 if attempt >= 3:
-                    restart_fastchat()
+                    experiment_helper.stop_fastchat()
+                    experiment_helper.start_fastchat(model_path)
+                        
                 
                 print(f"Try Counter: {attempt}")
                 time.sleep(retry_delay)
@@ -98,7 +90,8 @@ for variant in variants[7]:
                     shutil.rmtree(".cache")
                 
                 if attempt >= 3:
-                    restart_fastchat()
+                    experiment_helper.stop_fastchat()
+                    experiment_helper.start_fastchat(model_path)
                 
                 print(f"Try Counter: {attempt}")
                 time.sleep(retry_delay)
