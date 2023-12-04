@@ -24,18 +24,14 @@ class HuggingFaceLLM(AbstractLLM):
 
     def download_llm(self):
         model_id = self.get_model_id
+        
+        model = AutoModelForCausalLM.from_pretrained(model_id)
+        tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-        if not os.path.exists(os.path.join("models", model_id)):
-            os.makedirs(os.path.join("models", model_id))
-            print("Created directory for LLM")
-            model = AutoModelForCausalLM.from_pretrained(model_id)
-            tokenizer = AutoTokenizer.from_pretrained(model_id)
+        model.save_pretrained(os.path.join("models", model_id))
+        tokenizer.save_pretrained(os.path.join("models", model_id))
+        print("Downloaded LLM")
 
-            model.save_pretrained(os.path.join("models", model_id))
-            tokenizer.save_pretrained(os.path.join("models", model_id))
-            print("Downloaded LLM")
-        else:
-            print("LLM already downloaded")
 
     def load_llm(self) -> BaseLanguageModel:
         model_id = self.get_model_id

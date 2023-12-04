@@ -30,7 +30,7 @@ variants = single_factor_variants_renter_name()
 variants = variants
 
 # run configurations
-number_of_experiments = 50
+number_of_experiments = 2
 initial_chat_message = "Hello Mister Heine, thanks for inviting me to see the apartment. Let's talk about the rental price."
 max_rounds = 6
 
@@ -48,8 +48,8 @@ def restart_fastchat():
         full_command = f"cd d/ {fastchat_dir} && {command}"
         subprocess.Popen(["start", "cmd", "/k", full_command], shell=True)
 
-for variant in variants:
-    variant_folder = "single-factor-experiments/" + variant[0][1]["name_id"] # create a folder for renter name
+for variant in variants[7]:
+    variant_folder = "single-factor-experiments/" + variant[1]["name_id"] # create a folder for renter name
     
     if not os.path.exists(variant_folder):
             os.makedirs(variant_folder)
@@ -64,8 +64,8 @@ for variant in variants:
             try:
                 agent = BaseAgent()
                 
-                renter = autogen.AssistantAgent(name=variant[0][1]["name_id"], system_message=variant[0][1]["renter_system_message"], llm_config=llm_config)
-                landlord = autogen.AssistantAgent(name=variant[0][0]["name_id"], system_message=variant[0][0]["landlord_system_message"], llm_config=llm_config)
+                renter = autogen.AssistantAgent(name=variant[1]["name_id"], system_message=variant[1]["renter_system_message"], llm_config=llm_config)
+                landlord = autogen.AssistantAgent(name=variant[0]["name_id"], system_message=variant[0]["landlord_system_message"], llm_config=llm_config)
                 
                 print(f"Running experiment: {str(agent.id)}")
                 conversation = agent.run_agent_to_agent_conversation(agents=[renter, landlord], max_round=max_rounds, llm_config=llm_config, init_chat_message=initial_chat_message)
