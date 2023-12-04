@@ -9,6 +9,7 @@ import subprocess
 
 class BaseExperiment(AbstractBaseExperiment):
     id = uuid.UUID
+    processes = []
 
     def __init__(
         self
@@ -41,16 +42,26 @@ class BaseExperiment(AbstractBaseExperiment):
         return groupchat
 
     def start_fastchat(self, model_path):
+        self.processes = []
         fastchat_dir = "FastChat" 
         commands = [
         "python -m fastchat.serve.controller",
         f"python -m fastchat.serve.model_worker --model-path {model_path}",
         "python -m fastchat.serve.openai_api_server --host localhost --port 8000"
         ]
-    
-        for command in commands:
-            full_command = f"cd {fastchat_dir} && {command}"
-            subprocess.Popen(["start", "cmd", "/k", full_command], shell=True)
+   
+        for index, command in enumerate(commands):
+            set_title = f"title {index}"
+            full_command = f"{set_title} && cd {fastchat_dir} && {command}"
+            process = subprocess.Popen(["start", "cmd", "/k", full_command], shell=True)
+            self.processes.append(process)
+
+            
+    def stop_fastchat(self):
+        for index, process in enumerate(self.processes):
+            title_pattern = f"{index}*"
+            subprocess.run(f"taskkill /FI \"WINDOWTITLE eq {title_pattern}\" /IM cmd.exe", shell=True)
+
 
     def save_conversation(self, groupchat: GroupChat, path: str):
         if not os.path.exists(path):
