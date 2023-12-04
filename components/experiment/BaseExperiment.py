@@ -1,12 +1,13 @@
 import uuid
 from typing import Optional
-from components.agent.AbstractBaseAgent import AbstractBaseAgent
+from components.experiment.AbstractBaseExperiment import AbstractBaseExperiment
 from autogen import AssistantAgent, UserProxyAgent, GroupChat, GroupChatManager
 import json
 import os
+import subprocess
 
 
-class BaseAgent(AbstractBaseAgent):
+class BaseExperiment(AbstractBaseExperiment):
     id = uuid.UUID
 
     def __init__(
@@ -14,23 +15,6 @@ class BaseAgent(AbstractBaseAgent):
     ):
         self.id = uuid.uuid4()
     
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"
-
-    def observe(self) -> str:
-        pass
-
-    def plan_day(self):
-        pass
-
-    def set_daily_goals(self):
-        pass
-
-    def react(self):
-        pass
-
-    def update_plan(self):
-        pass
 
     def run_agent_to_agent_conversation(
         self, agents: list, max_round: int, llm_config, init_chat_message: str
@@ -56,14 +40,17 @@ class BaseAgent(AbstractBaseAgent):
 
         return groupchat
 
-    # def run_single_factor_experiment(
-    #     self,
-    #     agents: list,
-    #     init_chat_agent: int,
-    #     manager: GroupChatManager,
-    #     init_chat_message: str,
-    # ):
-    #     agents[init_chat_agent].initiate_chat(manager, message=init_chat_message)
+    def start_fastchat(self, model_path):
+        fastchat_dir = "FastChat" 
+        commands = [
+        "python -m fastchat.serve.controller",
+        f"python -m fastchat.serve.model_worker --model-path {model_path}",
+        "python -m fastchat.serve.openai_api_server --host localhost --port 8000"
+        ]
+    
+        for command in commands:
+            full_command = f"cd {fastchat_dir} && {command}"
+            subprocess.Popen(["start", "cmd", "/k", full_command], shell=True)
 
     def save_conversation(self, groupchat: GroupChat, path: str):
         if not os.path.exists(path):
