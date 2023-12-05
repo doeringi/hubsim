@@ -14,8 +14,8 @@ config_list = [
         "api_base": "http://localhost:8000/v1",
         "api_type": "open_ai",
         "api_key": "NULL",  # just a placeholder
-        "timeout": 1000,
-        "max_retries": 9000000
+        "timeout": 400,
+        "max_retries": 100
     }
 ]
 
@@ -33,7 +33,8 @@ variants = variants
 number_of_experiments = 50
 initial_chat_message = "Hello Mister Heine, thanks for inviting me to see the apartment. Let's talk about the rental price."
 max_rounds = 6
-model_path =  "01-ai/Yi-6B-Chat-8bits"
+model_paths= ["../models/mistralai/Mistral-7B-Instruct-v0.1", "meta-llama/Llama-2-13b-chat-hf", "01-ai/Yi-6B-Chat-8bits"]
+model_path =  "meta-llama/Llama-2-13b-chat-hf"
 
 # start fastchat once
 helper = BaseExperiment()
