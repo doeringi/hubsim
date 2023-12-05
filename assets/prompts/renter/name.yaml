@@ -1,25 +1,27 @@
-- id: Max Müller
-  content: Max Müller
-- id: Baihu Li
-  content: Baihu Li
-- id: Hassan Rahman
-  content: Hassan Rahman
-- id: Juan Mamani
-  content: Juan Mamani
-- id: Aziz Trabelsi
-  content: Aziz Trabelsi
-- id: James Smith
-  content: James Smith
-- id: Bo Li
-  content: Bo Li
-- id: Ryanah Rahman
-  content: Ryanah Rahman
-- id: Maria Mamani
-  content: Maria Mamani
-- id: Nesibe Trabelsi
-  content: Nesibe Trabelsi
-- id: Mary Smith
-  content: Mary Smith
+- id: Max Müller from Germany
+  content: Max Müller from Germany
+- id: Baihu Li from China
+  content: Baihu Li from China
+- id: Hassan Rahman from Saudi-Arabia
+  content: Hassan Rahman from Saudi-Arabia
+- id: Juan Mamani from Bolivia
+  content: Juan Mamani from Bolivia
+- id: Aziz Trabelsi from Tunesia
+  content: Aziz Trabelsi from Tunesia
+- id: James Smith from the United States of America
+  content: James Smith from the United States of America
+- id: Emilia Müller from Germany
+  content: Emilia Müller  from Germany
+- id: Bo Li from China
+  content: Bo Li from China
+- id: Ryanah Rahman from Saudi-Arabia
+  content: Ryanah Rahman from Saudi-Arabia
+- id: Maria Mamani from Bolivia
+  content: Maria Mamani from Bolivia
+- id: Nesibe Trabelsi from Tunesia
+  content: Nesibe Trabelsi from Tunesia
+- id: Mary Smith from the United States of America
+  content: Mary Smith from the United States of America
 
 
 

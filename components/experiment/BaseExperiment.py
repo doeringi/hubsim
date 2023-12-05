@@ -5,6 +5,7 @@ from autogen import AssistantAgent, UserProxyAgent, GroupChat, GroupChatManager
 import json
 import os
 import subprocess
+import time
 
 
 class BaseExperiment(AbstractBaseExperiment):
@@ -44,13 +45,16 @@ class BaseExperiment(AbstractBaseExperiment):
     def start_fastchat(self, model_path):
         try:
             self.processes = []
-            fastchat_dir = "FastChat" 
+            root_dir = os.path.join(os.path.dirname(__file__), '..', '..')
+            fastchat_dir = os.path.join(root_dir, "FastChat")
+            venv_activate = os.path.join(root_dir, ".venv", "Scripts", "activate")
+
             commands = [
-            "python -m fastchat.serve.controller",
-            f"python -m fastchat.serve.model_worker --model-path {model_path}",
-            "python -m fastchat.serve.openai_api_server --host localhost --port 8000"
+                f"{venv_activate} && python -m fastchat.serve.controller",
+                f"{venv_activate} && python -m fastchat.serve.model_worker --model-path {model_path}",
+                f"{venv_activate} && python -m fastchat.serve.openai_api_server --host localhost --port 8000"
             ]
-    
+
             for index, command in enumerate(commands):
                 set_title = f"title {index}"
                 full_command = f"{set_title} && cd {fastchat_dir} && {command}"
@@ -65,6 +69,8 @@ class BaseExperiment(AbstractBaseExperiment):
             for index, process in enumerate(self.processes):
                 title_pattern = f"{index}*"
                 subprocess.run(f"taskkill /FI \"WINDOWTITLE eq {title_pattern}\" /IM cmd.exe", shell=True)
+                time.sleep(5)
+                print(f"Process {process} stopped.")
         except Exception as e:
             print(e)
 
@@ -80,3 +86,11 @@ class BaseExperiment(AbstractBaseExperiment):
             json.dump(groupchat.messages, file)
             
         print("Saved conversation successfully.")
+        
+    def save_log_history(content, id, path):
+        if not os.path.exists(path):
+            os.makedirs(path)
+            print(f"Folder '{path}' created.")
+            
+        with open(f"single-factor-experiments/logs/conversation-log-{id}.json", "w") as file:
+            json.dump(content, file)

@@ -15,18 +15,17 @@ class HuggingFaceLLM(AbstractLLM):
     model_arguments: dict
 
     def __init__(self):
-        self.model_id = "mistralai/Mistral-7B-Instruct-v0.1"
         self.tokenizer_arguments = {}
         self.model_arguments = {
             "temperature": 0.9,
             "max_new_tokens": 50,
         }
 
-    def download_llm(self):
+    def download_llm(self, access_token=None):
         model_id = self.get_model_id
         
-        model = AutoModelForCausalLM.from_pretrained(model_id)
-        tokenizer = AutoTokenizer.from_pretrained(model_id)
+        model = AutoModelForCausalLM.from_pretrained(model_id, token=access_token)
+        tokenizer = AutoTokenizer.from_pretrained(model_id, token=access_token)
 
         model.save_pretrained(os.path.join("models", model_id))
         tokenizer.save_pretrained(os.path.join("models", model_id))

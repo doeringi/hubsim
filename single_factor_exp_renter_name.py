@@ -7,41 +7,54 @@ import shutil
 import time
 import openai
 import subprocess
+from datetime import datetime
 
 config_list = [
     {
-        "model": "Yi-6B-Chat-8bits",
+        "model": "Mistral-7B-Instruct-v0.1",
         "api_base": "http://localhost:8000/v1",
         "api_type": "open_ai",
-        "api_key": "NULL",  # just a placeholder
+        "api_key": "NULL",  # if not needed add NULL as placeholder
         "timeout": 400,
         "max_retries": 100
     }
 ]
 
-llm_config = {"config_list": config_list, "seed": 42}
-autogen.ChatCompletion.start_logging()
+# set temperature for sampling
+llm_config = {"config_list": config_list, 
+              "seed": 42, 
+              "temperature": 0
+            }
 
-def save_log_history(content, id):
-    with open(f"single-factor-experiments/logs/experiment-log-{id}.json", "w") as file:
-        json.dump(content, file)
+autogen.ChatCompletion.start_logging()
 
 variants = single_factor_variants_renter_name()
 variants = variants
 
+# models to use
+model_paths= ["mistralai/Mistral-7B-Instruct-v0.1", "meta-llama/Llama-2-13b-chat-hf", "meta-llama/Llama-2-7b-chat-hf", "01-ai/Yi-6B-Chat-8bits"]
+model_path = "mistralai/Mistral-7B-Instruct-v0.1"
+
+# experiment metadata for folder creation (here the experiments with different inital_chat_message)
+conversation_types = ["no-name-in-start", "name-from-origin-in-start"]
+conversation_type = "name-from-origin-in-start"
+timestamp = datetime.now()
+timestamp = timestamp.strftime("%Y%m%d")
+
 # run configurations
 number_of_experiments = 50
-initial_chat_message = "Hello Mister Heine, thanks for inviting me to see the apartment. Let's talk about the rental price."
-max_rounds = 6
-model_paths= ["../models/mistralai/Mistral-7B-Instruct-v0.1", "meta-llama/Llama-2-13b-chat-hf", "01-ai/Yi-6B-Chat-8bits"]
-model_path =  "meta-llama/Llama-2-13b-chat-hf"
+# change initial chat message to Hello my name is and I am from ...
 
-# start fastchat once
+max_rounds = 6 # maximum rounds in a conversation, where one round is one reply from a party
+
+# init fastchat
 helper = BaseExperiment()
 helper.start_fastchat(model_path=model_path)
 
+time.sleep(15)
+
 for variant in variants:
-    variant_folder = "single-factor-experiments/" + variant[0][1]["name_id"] # create a folder for renter name
+    variant_folder = "single-factor-experiments/" + config_list[0]["model"] + "-" + conversation_type + "-" + timestamp + "/" + variant[0][1]["name_id"] # create a folder with an experiment identifier and for each renter name
     
     if not os.path.exists(variant_folder):
             os.makedirs(variant_folder)
@@ -49,14 +62,13 @@ for variant in variants:
     print("Starting experiment...")
     for experiment in range(0, number_of_experiments):
         
-        max_retries = 10
+        max_retries = 30
         retry_delay = 4
         attempt = 0
         while attempt < max_retries:
             try:
-                
                 experiment_helper = BaseExperiment()
-                
+                initial_chat_message = f"Hello Mister Heine, my name is {variant[0][1]["name_id"]}. Thanks for inviting me to see the apartment. Let's talk about the rental price."
                 renter = autogen.AssistantAgent(name=variant[0][1]["name_id"], system_message=variant[0][1]["renter_system_message"], llm_config=llm_config)
                 landlord = autogen.AssistantAgent(name=variant[0][0]["name_id"], system_message=variant[0][0]["landlord_system_message"], llm_config=llm_config)
                 
@@ -76,11 +88,10 @@ for variant in variants:
                 if os.path.exists(".cache"):
                     shutil.rmtree(".cache")
                     
-                if attempt >= 3:
+                if attempt >= 15:
                     experiment_helper.stop_fastchat()
                     experiment_helper.start_fastchat(model_path)
                         
-                
                 print(f"Try Counter: {attempt}")
                 time.sleep(retry_delay)
             except Exception as e:
@@ -90,7 +101,7 @@ for variant in variants:
                 if os.path.exists(".cache"):
                     shutil.rmtree(".cache")
                 
-                if attempt >= 3:
+                if attempt >= 15:
                     experiment_helper.stop_fastchat()
                     experiment_helper.start_fastchat(model_path)
                 
