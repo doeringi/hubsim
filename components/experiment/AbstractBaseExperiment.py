@@ -3,7 +3,7 @@ import uuid
 from typing import Optional
 
 
-class AbstractBaseAgent(ABC):
+class AbstractBaseExperiment(ABC):
     id = uuid.UUID
 
     def __init__(
@@ -15,10 +15,6 @@ class AbstractBaseAgent(ABC):
     @property
     def id(self):
         return self.id
-
-    @property
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"
 
     @abstractmethod
     def run_agent_to_agent_conversation(self) -> list:
