@@ -21,7 +21,7 @@ class BaseExperiment(AbstractBaseExperiment):
     def run_agent_to_agent_conversation(
         self, agents: list, max_round: int, llm_config, init_chat_message: str
     ):
-        groupchat = GroupChat(agents=agents, messages=[], max_round=max_round)
+        groupchat = GroupChat(agents=agents, messages=[], max_round=max_round, speaker_selection_method="round_robin", allow_repeat_speaker=False)
 
         manager = GroupChatManager(groupchat=groupchat, llm_config=llm_config)
         
