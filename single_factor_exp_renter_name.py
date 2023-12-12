@@ -20,7 +20,9 @@ config_list = [
 # set temperature for sampling
 llm_config = {"config_list": config_list, 
               "cache_seed": 42, 
-              "temperature": 0,
+              "temperature": 0.6,
+#               "timeout": 30,
+#               "max_retries": 5
             }
 
 variants = single_factor_variants_renter_name()
@@ -45,7 +47,7 @@ max_rounds = 6 # maximum rounds in a conversation, where one round is one reply 
 # helper = BaseExperiment()
 # helper.start_fastchat(model_path=model_path)
 
-# time.sleep(60) # fastchat needs some time to load the model and get ready
+# time.sleep(120) # fastchat needs some time to load the model and get ready
 
 for variant in variants:
     variant_folder = "single-factor-experiments/" + config_list[0]["model"] + "-" + conversation_type + "-" + timestamp + "/" + variant[0][1]["name_id"] # create a folder with an experiment identifier and for each renter name
@@ -56,7 +58,7 @@ for variant in variants:
     print("Starting experiment...")
     for experiment in range(0, number_of_experiments):
         
-        max_retries = 30
+        max_retries = 100
         retry_delay = 4
         attempt = 0
         while attempt < max_retries:
