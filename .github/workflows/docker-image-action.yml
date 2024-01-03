@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag hubsim:latest
+        run: docker build . --file Dockerfile --tag doeringi/hubsim
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
@@ -34,4 +34,4 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Push image to Docker Hub
-        run: docker push doeringi/hubsim:latest
+        run: docker push doeringi/hubsim
