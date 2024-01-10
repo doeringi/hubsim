@@ -28,7 +28,7 @@ greenlet==3.0.1
 h11==0.14.0
 httpcore==0.18.0
 httpx==0.25.0
-huggingface-hub==0.17.3
+huggingface-hub==0.19.3
 humanfriendly==10.0
 idna==3.4
 Jinja2==3.1.2
