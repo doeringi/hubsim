@@ -29,12 +29,13 @@ variants = single_factor_variants_renter_name()
 variants = variants
 
 # models to use
-model_paths= ["mistralai/Mistral-7B-Instruct-v0.1", "meta-llama/Llama-2-13b-chat-hf", "meta-llama/Llama-2-7b-chat-hf", "01-ai/Yi-6B-Chat-8bits"]
-model_path = "mistralai/Mistral-7B-Instruct-v0.1"
+model_paths= ["facebook/blenderbot-400M-distill","mistralai/Mistral-7B-Instruct-v0.1", "meta-llama/Llama-2-13b-chat-hf", "meta-llama/Llama-2-7b-chat-hf", "01-ai/Yi-6B-Chat-8bits"]
+model_path = "Mistral-7B-Instruct-v0.1"
 
 # experiment metadata for folder creation (here the experiments with different inital_chat_message)
-conversation_types = ["no-name-in-start", "name-from-origin-in-start"]
-conversation_type = "name-from-origin-in-start"
+conversation_types = ["no-name-in-start", "name-from-origin-in-start","name_origin_city_in_start" ]
+conversation_type = "name_origin_city_in_start"
+city = "New York"
 timestamp = datetime.now()
 timestamp = timestamp.strftime("%Y%m%d")
 
@@ -50,7 +51,7 @@ max_rounds = 6 # maximum rounds in a conversation, where one round is one reply 
 # time.sleep(120) # fastchat needs some time to load the model and get ready
 
 for variant in variants:
-    variant_folder = "single-factor-experiments/" + config_list[0]["model"] + "-" + conversation_type + "-" + timestamp + "/" + variant[0][1]["name_id"] # create a folder with an experiment identifier and for each renter name
+    variant_folder = "single-factor-experiments/" + config_list[0]["model"] + "-" + conversation_type + "-"  + city + "-" + timestamp + "/" + variant[0][1]["name_id"] # create a folder with an experiment identifier and for each renter name
     
     if not os.path.exists(variant_folder):
             os.makedirs(variant_folder)
@@ -64,7 +65,7 @@ for variant in variants:
         while attempt < max_retries:
             try:
                 experiment_helper = BaseExperiment()
-                initial_chat_message = f"Hello Mister Heine, my name is {variant[0][1]['name_id']}. Thanks for inviting me to see the apartment. Let's talk about the rental price."
+                initial_chat_message = f"Hello Mister Heine, my name is {variant[0][1]['name_id']}. Thanks for inviting me to see the apartment in {city}. Let's talk about the rental price."
                 renter = autogen.AssistantAgent(name=variant[0][1]["name_id"], system_message=variant[0][1]["renter_system_message"], llm_config=llm_config)
                 landlord = autogen.AssistantAgent(name=variant[0][0]["name_id"], system_message=variant[0][0]["landlord_system_message"], llm_config=llm_config)
                 
