@@ -83,7 +83,7 @@ tiktoken
 tokenizers
 torch
 tqdm
-transformers==4.36.1
+transformers
 typing-inspect
 typing_extensions
 tzdata

@@ -21,9 +21,9 @@ class HuggingFaceLLM(AbstractLLM):
             "max_new_tokens": 50,
         }
 
-    def download_llm(self, access_token=None):
+    def download_llm_to_local(self, access_token=None):
         model_id = self.get_model_id
-        
+
         model = AutoModelForCausalLM.from_pretrained(model_id, token=access_token)
         tokenizer = AutoTokenizer.from_pretrained(model_id, token=access_token)
 
@@ -31,8 +31,7 @@ class HuggingFaceLLM(AbstractLLM):
         tokenizer.save_pretrained(os.path.join("models", model_id))
         print("Downloaded LLM")
 
-
-    def load_llm(self) -> BaseLanguageModel:
+    def load_local_llm(self) -> BaseLanguageModel:
         model_id = self.get_model_id
 
         model = AutoModelForCausalLM.from_pretrained(os.path.join("models", model_id))
@@ -42,6 +41,18 @@ class HuggingFaceLLM(AbstractLLM):
             task="text-generation",
             model=model,
             tokenizer=self.tokenizer,
+            model_kwargs=self.get_model_arguments,
+        )
+
+        self.llm = HuggingFacePipeline(pipeline=pipe)
+
+    def load_llm_from_hf(self) -> BaseLanguageModel:
+        model_id = self.get_model_id
+
+        pipe = pipeline(
+            task="text-generation",
+            model=model_id,
+            tokenizer=model_id,
             model_kwargs=self.get_model_arguments,
         )
 

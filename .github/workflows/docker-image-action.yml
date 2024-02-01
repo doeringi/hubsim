@@ -7,7 +7,7 @@ on:
       - bwuni-cluster
     paths:
       - Dockerfile
-      - docker-requirements.txt
+      - docker-latest-requirements.txt
       - .github/workflows/docker-image-action.yml
   pull_request:
     branches:
@@ -15,7 +15,7 @@ on:
       - bwuni-cluster
     paths:
       - Dockerfile
-      - docker-requirements.txt
+      - docker-latest-requirements.txt
       - .github/workflows/docker-image-action.yml
 
 jobs:
@@ -23,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Cleanup before build
+        run: docker system prune -af
+
       - uses: actions/checkout@v3
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag doeringi/hubsim
@@ -35,3 +38,6 @@ jobs:
 
       - name: Push image to Docker Hub
         run: docker push doeringi/hubsim
+
+      - name: Cleanup after build
+        run: docker system prune -af
