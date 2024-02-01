@@ -10,17 +10,35 @@ import openai
 import subprocess
 from datetime import datetime
 
-config_list = [
+mistral_config_list = [
     {
-        "model": "Mistral-7B-Instruct-v0.1",
+        "model": "mistral-7b-instruct-v0.1",
         "base_url": "http://localhost:8000/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
     }
 ]
 
+bagel_config_list = [
+    {
+        "model": "bagel-9b-v0.1",
+        "base_url": "http://localhost:8001/v1",
+        "api_key": "NULL",  # if not needed add NULL as placeholder
+    }
+]
+
+
 # set temperature for sampling
-llm_config = {
-    "config_list": config_list,
+mistral_llm_config = {
+    "config_list": mistral_config_list,
+    "cache_seed": 42,
+    "temperature": 0.6,
+    #               "timeout": 30,
+    #               "max_retries": 5
+}
+
+
+bagel_llm_config = {
+    "config_list": bagel_config_list,
     "cache_seed": 42,
     "temperature": 0.6,
     #               "timeout": 30,
@@ -36,6 +54,11 @@ evaluation_folder = "single-factor-controlled-evaluation-results"
 full_path = os.path.join(base_path, experiment_path)
 print("Full path:", full_path)
 print("Current Working Directory:", os.getcwd())
+
+# ToDo:
+# Folder Structure: landlord-model-[renter_name]-model-city-timestamp
+# extract model from folder name and include config in agent based on the extracted model
+# evaluation agent is always mixtral
 
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
