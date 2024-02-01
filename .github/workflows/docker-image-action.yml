@@ -26,8 +26,9 @@ jobs:
       - name: Cleanup before build
         run: docker system prune -af
 
+      - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --tag doeringi/hubsim
+        run: docker build . --file Dockerfile --tag doeringi/hubsim
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
