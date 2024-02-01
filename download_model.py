@@ -6,7 +6,7 @@ import os
 load_dotenv()
 
 llama2_access_token = os.environ.get("HF_LLAMA2_ACCESS_TOKEN")
-model_id = "meta-llama/Llama-2-7b-chat-hf"
+model_id = "meta-llama/Llama-2-70b-chat-hf"
 
 llm_helper = HuggingFaceLLM()
 

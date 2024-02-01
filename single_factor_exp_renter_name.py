@@ -11,7 +11,7 @@ from datetime import datetime
 
 config_list = [
     {
-        "model": "Mistral-7B-Instruct-v0.1",
+        "model": "Yi-34B-Chat",
         "base_url": "http://localhost:8000/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
     }
@@ -36,7 +36,7 @@ model_paths = [
     "meta-llama/Llama-2-7b-chat-hf",
     "01-ai/Yi-6B-Chat-8bits",
 ]
-model_path = "mistralai/Mistral-7B-Instruct-v0.1"
+model_path = "01-ai/Yi-34B-Chat"
 
 # experiment metadata for folder creation (here the experiments with different inital_chat_message)
 conversation_types = [
@@ -67,8 +67,8 @@ for variant in variants:
         "single-factor-experiments/"
         + config_list[0]["model"]
         + "-"
-        + conversation_type
-        + city[0]
+        + conversation_type + "-"
+        + city[1]
         + "-"
         + timestamp
         + "/"
@@ -86,7 +86,7 @@ for variant in variants:
         while attempt < max_retries:
             try:
                 experiment_helper = BaseExperiment()
-                initial_chat_message = f"Hello Mister Heine, my name is {variant[0][1]['name_id']}. Thanks for inviting me to see the apartment in {city[0]}. Let's talk about the rental price."
+                initial_chat_message = f"Hello Mister Heine, my name is {variant[0][1]['name_id']}. Thanks for inviting me to see the apartment in {city[1]}. Let's talk about the rental price."
                 renter = autogen.AssistantAgent(
                     name=variant[0][1]["name_id"],
                     system_message=variant[0][1]["renter_system_message"],
