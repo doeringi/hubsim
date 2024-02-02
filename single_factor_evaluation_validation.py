@@ -1,3 +1,6 @@
+## This script is for validation purposes of the evaluation agent. 
+## It takes just 3 conversations per name and evaluates them.
+
 from components.experiment.BaseExperiment import BaseExperiment
 
 # from components.common.variant_testing_helper import single_factor_variants_renter_name
@@ -51,7 +54,7 @@ experiment_helper = BaseExperiment()
 
 base_path = "single-factor-experiments"
 experiment_path = "Yi-34B-Chat-name-origin-city-in-start-Mannheim-20240109"
-evaluation_folder = "single-factor-controlled-evaluation-results"
+evaluation_folder = "single-factor-controlled-evaluation-results-validation"
 
 full_path = os.path.join(base_path, experiment_path)
 print("Full path:", full_path)
@@ -68,7 +71,7 @@ if os.path.isdir(full_path):
         model_renter = re.search('landlord-(.+?)-[renter_name]', experimental_path) # extract the llm used for the renter
         model_landlord = re.search('-[renter_name](.+?)-city-timestamp', experimental_path) # extract the llm used for the landlord
         name_path = os.path.join(full_path, name)
-        for experiment_id in os.listdir(name_path):
+        for experiment_id in os.listdir(name_path)[0:2]: # should work (hopefully)
             experiment_id_path = os.path.join(name_path, experiment_id)
             for file in os.listdir(experiment_id_path):
                 file_path = os.path.join(experiment_id_path, file)
