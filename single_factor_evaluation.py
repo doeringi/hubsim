@@ -9,7 +9,9 @@ import time
 import openai
 import subprocess
 from datetime import datetime
+import re
 
+# define the config_lists for both models
 mistral_config_list = [
     {
         "model": "mistral-7b-instruct-v0.1",
@@ -56,12 +58,15 @@ print("Full path:", full_path)
 print("Current Working Directory:", os.getcwd())
 
 # ToDo:
-# Folder Structure: landlord-model-[renter_name]-model-city-timestamp
+# Folder Structure: new experiment path: landlord-model-[renter_name]-model-city-timestamp
 # extract model from folder name and include config in agent based on the extracted model
 # evaluation agent is always mixtral
 
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
+        experimental_path = full_path.split(os.path.sep)[1] # extract the experiment path
+        model_renter = re.search('landlord-(.+?)-[renter_name]', experimental_path) # extract the llm used for the renter
+        model_landlord = re.search('-[renter_name](.+?)-city-timestamp', experimental_path) # extract the llm used for the landlord
         name_path = os.path.join(full_path, name)
         for experiment_id in os.listdir(name_path):
             experiment_id_path = os.path.join(name_path, experiment_id)
@@ -77,19 +82,31 @@ if os.path.isdir(full_path):
                     evaluator = autogen.AssistantAgent(
                         name="Evaluator",
                         system_message="Hello, my name is Evaluator. I will evaluate the conversation.",
-                        llm_config=llm_config,
+                        llm_config=mistral_config_list, # we discussed to always use Mistral (or Mixtral) here
                     )
+                    
+                    # define with which model the renter should answer (the same as in the experiment)
+                    if model_renter == mistral_config_list["model"]:
+                        config_renter = mistral_config_list,
+                    elif model_renter == bagel_config_list["model"]:
+                        config_renter = bagel_config_list
 
                     renter = autogen.AssistantAgent(
                         name="Renter Name",
                         system_message="Hello, my name is Renter Name. I will be interviewed.",
-                        llm_config=llm_config,
+                        llm_config= config_renter
                     )
-
+                    
+                    # define with which model the landlord should answer (the same as in the experiment)
+                    if model_landlord == mistral_config_list["model"]:
+                        config_landlord = mistral_config_list,
+                    elif model_landlord == bagel_config_list["model"]:
+                        config_landlord = bagel_config_list
+                        
                     landlord = autogen.AssistantAgent(
                         name="Landlord Name",
                         system_message="Hello, my name is Landlord Name. I will be interviewed.",
-                        llm_config=llm_config,
+                        llm_config= config_landlord
                     )
 
                     evaluator_renter_chat = autogen.GroupChat(
@@ -109,7 +126,7 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator_renter_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_renter_chat, llm_config=llm_config
+                        groupchat=evaluator_renter_chat, llm_config=mistral_config_list # should this also be mistral?
                     )
 
                     evaluator.initiate_chat(
@@ -122,7 +139,7 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator_landlord_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_landlord_chat, llm_config=llm_config
+                        groupchat=evaluator_landlord_chat, llm_config=mistral_config_list # should this also be mistral?
                     )
 
                     evaluator.initiate_chat(
