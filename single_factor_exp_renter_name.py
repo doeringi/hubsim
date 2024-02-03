@@ -55,6 +55,7 @@ number_of_experiments = (
 max_rounds = (
     6  # maximum rounds in a conversation, where one round is one utterance of an agent
 )
+is_termination_msg = lambda x: True if "TERMINATE" in x.get("content") else False
 
 # generate all variants
 variants = single_factor_variants_renter_name()
@@ -89,11 +90,13 @@ for variant in variants:
                 name=variant[0][1]["name_id"],
                 system_message=variant[0][1]["renter_system_message"],
                 llm_config=mistral_llm_config,
+                is_termination_msg=is_termination_msg,
             )
             landlord = autogen.AssistantAgent(
                 name=variant[0][0]["name_id"],
                 system_message=variant[0][0]["landlord_system_message"],
                 llm_config=mistral_llm_config,
+                is_termination_msg=is_termination_msg,
             )
 
             print(f"Running experiment: {str(experiment_helper.id)}")
