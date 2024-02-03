@@ -3,7 +3,17 @@ from jinja2 import Template
 import yaml
 
 
-_jinja_template_string = """You are {{name}}. Facts about yourself: {{socio_behavioral}}. Facts about the apartment: {{apartment}}. Your goal: {{target}}. Do not tell anyone the facts above. Don't talk about utilities or anything else. Only talk about the rental price. If you want to accept the rental price proposed by the other party, say: "I agree to the price of x Euro", where x is the final price that you agreed on. If you don't want to continue the negotiation, say: "TERMINATE"."""
+_jinja_template_string = """You are {{name}}. 
+\n Facts about yourself: {{socio_behavioral}}. 
+\n Facts about the apartment: {{apartment}}. 
+\n Your goal: {{target}}. 
+\n Never forget the following rules: 
+- Do not tell the other party the facts stated above. 
+- Only talk about the rental price. Do not talk about additional responsibilities, lease term conditions, or utility costs like heating, water, or electricity.
+- If you want to accept the rental price proposed by the other party respond with the follwing sentence, where x is the final price that you want to agree with: 'I agree to the price of [x] Euro!' 
+- If you don't want to continue the negotiation respond with the following sentence with a reason why you don't want to continue: 'I don't want to continue the negotiation, because [reason].'
+- If you and the other party agreed on a price, the negotiation will be terminated. Respond with the following sentence: 'TERMINATE'
+- If you and the other party did not agree on a price, the negotiation will be terminated. Respond with the following sentence: 'TERMINATE'"""
 
 
 def _load_yaml_data(subfolder: str, yaml_content: str):
@@ -145,7 +155,7 @@ def single_factor_variants_renter_name():
     apartment = list(_load_product_config())
     landlord_name, landlord_socio_behavioral, landlord_target = _load_landlord_config()
     renter_name, renter_socio_behavioral, renter_target = _load_renter_config()
-    
+
     renter = [
         (
             {
@@ -153,12 +163,17 @@ def single_factor_variants_renter_name():
                 "socio_behavioral_id": renter_socio_behavioral[0]["id"],
                 "target_id": renter_target[0]["id"],
                 "apartment_id": apartment[0]["id"],
-                "renter_system_message": render_system_message(name["content"], renter_socio_behavioral[0]["content"], renter_target[0]["content"], apartment[0]["content"])
+                "renter_system_message": render_system_message(
+                    name["content"],
+                    renter_socio_behavioral[0]["content"],
+                    renter_target[0]["content"],
+                    apartment[0]["content"],
+                ),
             }
         )
         for name in renter_name
     ]
-    
+
     landlord = [
         (
             {
@@ -166,19 +181,24 @@ def single_factor_variants_renter_name():
                 "socio_behavioral_id": landlord_socio_behavioral[0]["id"],
                 "target_id": landlord_target[0]["id"],
                 "apartment_id": apartment[0]["id"],
-                "landlord_system_message": render_system_message(name["content"], landlord_socio_behavioral[0]["content"], landlord_target[0]["content"], apartment[0]["content"])
+                "landlord_system_message": render_system_message(
+                    name["content"],
+                    landlord_socio_behavioral[0]["content"],
+                    landlord_target[0]["content"],
+                    apartment[0]["content"],
+                ),
             }
         )
         for name in landlord_name
     ]
-    
+
     factor_variants = product(landlord, renter)
     factor_variants = list(factor_variants)
-    
+
     variants = [[variant] for variant in factor_variants]
-    
+
     return variants
-    
+
 
 def render_system_message(
     name: str, socio_behavioral: str, target: str, apartment: str
