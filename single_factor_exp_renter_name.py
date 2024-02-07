@@ -7,7 +7,7 @@ from datetime import datetime
 
 mistral_config_list = [
     {
-        "model": "Mixtral-8x7B-Instruct-v0.1",
+        "model": "Yi-34B-Chat",
         "base_url": "http://localhost:8000/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
     }
@@ -39,8 +39,8 @@ bagel_llm_config = {
 
 # model(s) to use
 # models = ["mistralai/Mixtral-8x7B-Instruct-v0.1", "jondurbin/bagel-34b-v0.2"]
-landlord_model = "Mixtral-8x7B-Instruct-v0.1"
-renter_model = "Mixtral-8x7B-Instruct-v0.1"
+landlord_model = "Yi-34B-Chat"
+renter_model = "Yi-34B-Chat"
 
 # city and timestamp metadata
 city_list = ["Duisburg", "Magdeburg", "München"]
@@ -53,7 +53,7 @@ number_of_experiments = (
     25  # number of experiments (one experiment = conversations) to run
 )
 max_rounds = (
-    6  # maximum rounds in a conversation, where one round is one utterance of an agent
+    12  # maximum rounds in a conversation, where one round is one utterance of an agent
 )
 is_termination_msg = lambda x: True if "TERMINATE" in x.get("content") else False
 

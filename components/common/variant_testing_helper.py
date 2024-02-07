@@ -215,7 +215,7 @@ def render_system_message(
 
 # example all variants
 output = single_factor_variants_renter_name()
-print(output[7])
+print(output[0])
 # print(output)
 # all = single_factor_variants_renter_name()
 # print(len(all))
