@@ -25,7 +25,7 @@ Yi_config_list = [
 
 bagel_config_list = [
     {
-        "model": "bagel-9b-v0.1",
+        "model": "bagel-dpo-34b-v0.2",
         "base_url": "http://localhost:8001/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
     }
@@ -80,8 +80,8 @@ These are the questions:
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
         experimental_path = full_path.split(os.path.sep)[1] # extract the experiment path
-        model_renter = re.search('landlord-(.+?)-[renter_name]', experimental_path) # extract the llm used for the renter
-        model_landlord = re.search('-[renter_name](.+?)-city-timestamp', experimental_path) # extract the llm used for the landlord
+        model_landlord = re.search('landlord-(.+?)-[renter_name]', experimental_path) # extract the llm used for the renter
+        model_renter = re.search('-[renter_name](.+?)-city-timestamp', experimental_path) # extract the llm used for the landlord
         name_path = os.path.join(full_path, name)
         for experiment_id in os.listdir(name_path)[0:2]: # should work (hopefully)
             experiment_id_path = os.path.join(name_path, experiment_id)
