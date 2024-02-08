@@ -85,7 +85,7 @@ def write_to_csv(csv_file_path, csv_data):
             row[-1] = ', '.join(map(str, row[-1]))  # Modified Price List
             writer.writerow(row)
 
-# Update the process_folder function to handle the new CSV data structure
+# Update the process_folder function to handle the folder structure of the new cross-agent experiments
 def process_folder(base_path, output_directory):
     """
     Process each folder in 'single-factor-experiments' and create a single CSV file containing data
