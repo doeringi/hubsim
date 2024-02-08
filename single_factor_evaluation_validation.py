@@ -80,10 +80,11 @@ These are the questions:
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
         # experimental_path = full_path.split(os.path.sep)[1] # extract the experiment path
-        experiment_info = re.findall(r"bagel-dpo-34b-v0.2|Yi-34B-Chat|Magdeburg|Duisburg|München?", name)
+        experiment_info = re.findall(r"bagel-dpo-34b-v0.2|Yi-34B-Chat|Magdeburg|Duisburg|München|Emilia Müller|Max Müller|Maryam Abbasi|Farhad Abbasi|Yi-Nuo|Haoyu Wang?", name)
         model_landlord = experiment_info[0] # extract the llm used for the renter
-        model_renter = experiment_info[1] # extract the llm used for the landlord
-        city = experiment_info[2]
+        renter_name = experiment_info[1]
+        model_renter = experiment_info[2] # extract the llm used for the landlord
+        city = experiment_info[3]
         name_path = os.path.join(full_path, name)
         for experiment_id in os.listdir(name_path)[0:2]: # should work (hopefully)
             experiment_id_path = os.path.join(name_path, experiment_id)
@@ -98,9 +99,9 @@ if os.path.isdir(full_path):
                     conversation_history = json.load(open(file_path))
                     evaluator = autogen.AssistantAgent(
                         name="Evaluator",
-                        system_message=f"""You are an interviewer. 
-                        You will evaluate the conversation. 
-                        The following questionnaire is given: {interview_questionnaire}""",
+                        system_message=f"""You are an evaluation agent asking questions to another 
+                        person. Please use only the questions stated below. Do not talk about 
+                        anything else. {interview_questionnaire}""",
                         llm_config=Yi_config_list, # we discussed to always use Yi here
                     )
                     
@@ -111,8 +112,8 @@ if os.path.isdir(full_path):
                         config_renter = bagel_config_list
 
                     renter = autogen.AssistantAgent(
-                        name="Renter Name",
-                        system_message="""Hello, my name is Renter Name. I will be interviewed. 
+                        name= renter_name,
+                        system_message=f"""Hello, my name is {renter_name}. I will be interviewed. 
                         I will just answer the each question I was asked and give no additional information.""",
                         llm_config= config_renter
                     )
@@ -124,8 +125,8 @@ if os.path.isdir(full_path):
                         config_landlord = bagel_config_list
                         
                     landlord = autogen.AssistantAgent(
-                        name="Landlord Name",
-                        system_message="""Hello, my name is Landlord Name. I will be interviewed. 
+                        name="Peter Schmidt",
+                        system_message="""Hello, my name is Peter Schmidt. I will be interviewed. 
                         I will just answer the each question I was asked and give no additional information.""",
                         llm_config= config_landlord
                     )
