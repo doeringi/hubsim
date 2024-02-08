@@ -112,7 +112,8 @@ if os.path.isdir(full_path):
 
                     renter = autogen.AssistantAgent(
                         name="Renter Name",
-                        system_message="Hello, my name is Renter Name. I will be interviewed. I will just answer the each question I was asked and give no additional information.",
+                        system_message="""Hello, my name is Renter Name. I will be interviewed. 
+                        I will just answer the each question I was asked and give no additional information.""",
                         llm_config= config_renter
                     )
                     
