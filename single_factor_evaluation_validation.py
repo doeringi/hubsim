@@ -53,7 +53,7 @@ bagel_llm_config = {
 experiment_helper = BaseExperiment()
 
 base_path = "single-factor-experiments"
-experiment_path = "Yi-34B-Chat-name-origin-city-in-start-Mannheim-20240109"
+experiment_path = "Yi-34B-Chat-Yi-34B-Chat"
 evaluation_folder = "single-factor-controlled-evaluation-results-validation"
 
 full_path = os.path.join(base_path, experiment_path)
@@ -79,9 +79,11 @@ These are the questions:
 
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
-        experimental_path = full_path.split(os.path.sep)[1] # extract the experiment path
-        model_landlord = re.search('landlord-(.+?)-[renter_name]', experimental_path) # extract the llm used for the renter
-        model_renter = re.search('-[renter_name](.+?)-city-timestamp', experimental_path) # extract the llm used for the landlord
+        # experimental_path = full_path.split(os.path.sep)[1] # extract the experiment path
+        experiment_info = re.findall(r"bagel-dpo-34b-v0.2|Yi-34B-Chat|Magdeburg|Duisburg|München?", name)
+        model_landlord = experiment_info[0] # extract the llm used for the renter
+        model_renter = experiment_info[1] # extract the llm used for the landlord
+        city = experiment_info[2]
         name_path = os.path.join(full_path, name)
         for experiment_id in os.listdir(name_path)[0:2]: # should work (hopefully)
             experiment_id_path = os.path.join(name_path, experiment_id)
@@ -99,7 +101,7 @@ if os.path.isdir(full_path):
                         system_message=f"""You are an interviewer. 
                         You will evaluate the conversation. 
                         The following questionnaire is given: {interview_questionnaire}""",
-                        llm_config=Yi_config_list, # we discussed to always use Mixtral here
+                        llm_config=Yi_config_list, # we discussed to always use Yi here
                     )
                     
                     # define with which model the renter should answer (the same as in the experiment)
@@ -122,7 +124,8 @@ if os.path.isdir(full_path):
                         
                     landlord = autogen.AssistantAgent(
                         name="Landlord Name",
-                        system_message="Hello, my name is Landlord Name. I will be interviewed. I will just answer the each question I was asked and give no additional information.",
+                        system_message="""Hello, my name is Landlord Name. I will be interviewed. 
+                        I will just answer the each question I was asked and give no additional information.""",
                         llm_config= config_landlord
                     )
 
