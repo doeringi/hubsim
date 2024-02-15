@@ -106,10 +106,11 @@ if os.path.isdir(full_path):
                     )
                     
                     # define with which model the renter should answer (the same as in the experiment)
-                    if model_renter == Yi_config_list[0]["model"]:
-                        config_renter = Yi_llm_config,
-                    elif model_renter == bagel_config_list[0]["model"]:
-                        config_renter = bagel_llm_config
+                    config_renter = Yi_llm_config if model_renter == Yi_config_list[0]["model"] else bagel_llm_config
+                    #if model_renter == Yi_config_list[0]["model"]:
+                    #    config_renter = Yi_llm_config,
+                    #elif model_renter == bagel_config_list[0]["model"]:
+                    #    config_renter = bagel_llm_config
 
                     renter = autogen.AssistantAgent(
                         name= renter_name,
@@ -119,10 +120,11 @@ if os.path.isdir(full_path):
                     )
                     
                     # define with which model the landlord should answer (the same as in the experiment)
-                    if model_landlord == Yi_config_list[0]["model"]:
-                        config_landlord = Yi_llm_config,
-                    elif model_landlord == bagel_config_list[0]["model"]:
-                        config_landlord = bagel_llm_config
+                    config_landlord = Yi_llm_config if model_landlord == Yi_config_list[0]["model"] else bagel_llm_config
+                    #if model_landlord == Yi_config_list[0]["model"]:
+                    #    config_landlord = Yi_llm_config,
+                    #elif model_landlord == bagel_config_list[0]["model"]:
+                    #    config_landlord = bagel_llm_config
                         
                     landlord = autogen.AssistantAgent(
                         name="Peter Schmidt",
