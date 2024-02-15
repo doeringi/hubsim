@@ -19,7 +19,7 @@ import re
 Yi_config_list = [
     {
         "model": "01-ai/Yi-34B-Chat",
-        "base_url": "http://localhost:8000/v1",
+        "base_url": "http://localhost:21002/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
         "api_type": "openai",
     }
