@@ -150,7 +150,8 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator_renter_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_renter_chat, llm_config=Yi_llm_config # should this also be Yi?
+                        groupchat=evaluator_renter_chat, llm_config=Yi_llm_config,
+                        code_execution_config={"use_docker": False}# should this also be Yi?
                     )
 
                     evaluator.initiate_chat(
@@ -163,7 +164,8 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator_landlord_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_landlord_chat, llm_config=Yi_llm_config # should this also be Yi?
+                        groupchat=evaluator_landlord_chat, llm_config=Yi_llm_config,
+                        code_execution_config={"use_docker": False} # should this also be Yi?
                     )
 
                     evaluator.initiate_chat(
