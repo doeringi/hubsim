@@ -36,7 +36,7 @@ bagel_config_list = [
 Yi_llm_config = {
     "config_list": Yi_config_list,
     "cache_seed": 42,
-    "temperature": 0.6,
+    "temperature": 0.6
     #               "timeout": 30,
     #               "max_retries": 5
 }
@@ -45,7 +45,7 @@ Yi_llm_config = {
 bagel_llm_config = {
     "config_list": bagel_config_list,
     "cache_seed": 42,
-    "temperature": 0.6,
+    "temperature": 0.6
     #               "timeout": 30,
     #               "max_retries": 5
 }
