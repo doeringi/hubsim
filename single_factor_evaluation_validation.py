@@ -36,7 +36,7 @@ bagel_config_list = [
 Yi_llm_config = {
     "config_list": Yi_config_list,
     "cache_seed": 42,
-    "temperature": 0.6
+    "temperature": 0.6,
     #               "timeout": 30,
     #               "max_retries": 5
 }
@@ -45,7 +45,7 @@ Yi_llm_config = {
 bagel_llm_config = {
     "config_list": bagel_config_list,
     "cache_seed": 42,
-    "temperature": 0.6
+    "temperature": 0.6,
     #               "timeout": 30,
     #               "max_retries": 5
 }
@@ -102,14 +102,14 @@ if os.path.isdir(full_path):
                         system_message=f"""You are an evaluation agent asking questions to another 
                         person. Please use only the questions stated below. Do not talk about 
                         anything else. {interview_questionnaire}""",
-                        llm_config=Yi_config_list, # we discussed to always use Yi here
+                        llm_config=Yi_llm_config, # we discussed to always use Yi here
                     )
                     
                     # define with which model the renter should answer (the same as in the experiment)
                     if model_renter == Yi_config_list["model"]:
-                        config_renter = Yi_config_list,
+                        config_renter = Yi_llm_config,
                     elif model_renter == bagel_config_list["model"]:
-                        config_renter = bagel_config_list
+                        config_renter = bagel_llm_config
 
                     renter = autogen.AssistantAgent(
                         name= renter_name,
@@ -120,9 +120,9 @@ if os.path.isdir(full_path):
                     
                     # define with which model the landlord should answer (the same as in the experiment)
                     if model_landlord == Yi_config_list["model"]:
-                        config_landlord = Yi_config_list,
+                        config_landlord = Yi_llm_config,
                     elif model_landlord == bagel_config_list["model"]:
-                        config_landlord = bagel_config_list
+                        config_landlord = bagel_llm_config
                         
                     landlord = autogen.AssistantAgent(
                         name="Peter Schmidt",
@@ -148,7 +148,7 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator_renter_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_renter_chat, llm_config=Yi_config_list # should this also be Yi?
+                        groupchat=evaluator_renter_chat, llm_config=Yi_llm_config # should this also be Yi?
                     )
 
                     evaluator.initiate_chat(
@@ -161,7 +161,7 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator_landlord_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_landlord_chat, llm_config=Yi_config_list # should this also be Yi?
+                        groupchat=evaluator_landlord_chat, llm_config=Yi_llm_config # should this also be Yi?
                     )
 
                     evaluator.initiate_chat(
