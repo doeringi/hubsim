@@ -155,7 +155,7 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator.initiate_chat(
-                        evaluator_renter_manager, message="init_chat_message"
+                        evaluator_renter_manager, message="What is your name?"
                     )
 
                     experiment_helper.save_conversation(
@@ -169,7 +169,7 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator.initiate_chat(
-                        evaluator_landlord_manager, message="init_chat_message"
+                        evaluator_landlord_manager, message="What is your name?"
                     )
 
                     experiment_helper.save_conversation(
