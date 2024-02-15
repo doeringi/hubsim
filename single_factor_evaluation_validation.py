@@ -94,7 +94,7 @@ if os.path.isdir(full_path):
                 if os.path.isfile(file_path):
                     print("File found:", file_path)
                     path_parts = file_path.split(os.path.sep)
-                    eval_result_sub_path = os.path.join(path_parts[1:])
+                    eval_result_sub_path = os.path.join(path_parts[1], path_parts[2], path_parts[3])
 
                     conversation_history = json.load(open(file_path))
                     evaluator = autogen.AssistantAgent(
