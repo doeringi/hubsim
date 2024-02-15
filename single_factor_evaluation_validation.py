@@ -5,6 +5,7 @@ from components.experiment.BaseExperiment import BaseExperiment
 
 # from components.common.variant_testing_helper import single_factor_variants_renter_name
 import autogen
+from autogen import oai
 import json
 import os
 import shutil
@@ -20,6 +21,7 @@ Yi_config_list = [
         "model": "01-ai/Yi-34B-Chat",
         "base_url": "http://localhost:8000/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
+        "api_type": "openai",
     }
 ]
 
@@ -28,6 +30,7 @@ bagel_config_list = [
         "model": "jondurbin/bagel-dpo-34b-v0.2",
         "base_url": "http://localhost:8001/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
+        "api_type": "openai",
     }
 ]
 
@@ -133,18 +136,10 @@ if os.path.isdir(full_path):
                         llm_config= config_landlord
                     )
 
-                    evaluator_renter_chat = autogen.GroupChat(
+                    evaluator_renter_chat = autogen.GroupChat( #GroupChat
                         agents=[evaluator, renter],
                         messages=conversation_history,
                         max_round=12, #because we have 6 questions
-                        speaker_selection_method="round_robin",
-                        allow_repeat_speaker=False,
-                    )
-
-                    evaluator_landlord_chat = autogen.GroupChat(
-                        agents=[evaluator, landlord],
-                        messages=conversation_history,
-                        max_round=12,
                         speaker_selection_method="round_robin",
                         allow_repeat_speaker=False,
                     )
@@ -161,6 +156,14 @@ if os.path.isdir(full_path):
                     experiment_helper.save_conversation(
                         groupchat=evaluator_renter_chat,
                         path=os.join(evaluation_folder, eval_result_sub_path),
+                    )
+                    
+                    evaluator_landlord_chat = autogen.GroupChat( # GroupChat
+                        agents=[evaluator, landlord],
+                        messages=conversation_history,
+                        max_round=12,
+                        speaker_selection_method="round_robin",
+                        allow_repeat_speaker=False,
                     )
 
                     evaluator_landlord_manager = autogen.GroupChatManager(
