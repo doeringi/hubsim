@@ -17,7 +17,7 @@ import re
 # define the config_lists for both models
 Yi_config_list = [
     {
-        "model": "Yi-34B-Chat",
+        "model": "01-ai/Yi-34B-Chat",
         "base_url": "http://localhost:8000/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
     }
@@ -25,7 +25,7 @@ Yi_config_list = [
 
 bagel_config_list = [
     {
-        "model": "bagel-dpo-34b-v0.2",
+        "model": "jondurbin/bagel-dpo-34b-v0.2",
         "base_url": "http://localhost:8001/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
     }
