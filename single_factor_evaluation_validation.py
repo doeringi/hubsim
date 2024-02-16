@@ -88,7 +88,7 @@ if os.path.isdir(full_path):
         model_renter = experiment_info[2] # extract the llm used for the landlord
         city = experiment_info[3]
         name_path = os.path.join(full_path, name)
-        for experiment_id in os.listdir(name_path)[0:2]: # should work (hopefully)
+        for experiment_id in os.listdir(name_path): # should work (hopefully)
             experiment_id_path = os.path.join(name_path, experiment_id)
             for file in os.listdir(experiment_id_path):
                 file_path = os.path.join(experiment_id_path, file)
