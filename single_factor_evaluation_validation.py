@@ -1,7 +1,8 @@
-## This script is for validation purposes of the evaluation agent. 
+## This script is for validation purposes of the evaluation agent.
 ## It takes just 3 conversations per name and evaluates them.
 
 from components.experiment.BaseExperiment import BaseExperiment
+from pyautogen import AssistantAgent
 
 # from components.common.variant_testing_helper import single_factor_variants_renter_name
 import autogen
@@ -67,7 +68,7 @@ print("Current Working Directory:", os.getcwd())
 # extract model from folder name and include config in agent based on the extracted model
 # evaluation agent is always mixtral
 
-interview_questionnaire =  """
+interview_questionnaire = """
 Ask one question per utterance. At the end all questions should have been asked once. 
 These are the questions: 
 1. What is your name?​
@@ -79,16 +80,46 @@ These are the questions:
 ​"""
 
 
+class EvaluationAgent(AssistantAgent):
+    """
+    "DEFAULT_summary_method": a string or callable specifying the method to get a summary from the chat. Default is DEFAULT_summary_method, i.e., "last_msg".
+                        - Supported string are "last_msg" and "reflection_with_llm":
+                            when set "last_msg", it returns the last message of the dialog as the summary.
+                            when set "reflection_with_llm", it returns a summary extracted using an llm client.
+                            `llm_config` must be set in either the recipient or sender.
+                            "reflection_with_llm" requires the llm_config to be set in either the sender or the recipient.
+                        - A callable summary_method should take the recipient and sender agent in a chat as input and return a string of summary. E.g,
+                        ```python
+                        def my_summary_method(
+                            sender: ConversableAgent,
+                            recipient: ConversableAgent,
+                        ):
+                            return recipient.last_message(sender)["content"]
+                        ```
+
+    More information: https://github.com/microsoft/autogen/blob/main/autogen/agentchat/conversable_agent.py#L51
+    """
+
+    DEFAULT_summary_method = "reflection_with_llm"
+    DEFAULT_summary_prompt = "Summarize the takeaway from the conversation. Do not add any introductory phrases."
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
         # experimental_path = full_path.split(os.path.sep)[1] # extract the experiment path
-        experiment_info = re.findall(r"bagel-dpo-34b-v0.2|Yi-34B-Chat|Magdeburg|Duisburg|München|Emilia Müller|Max Müller|Maryam Abbasi|Farhad Abbasi|Yi-Nuo|Haoyu Wang?", name)
-        model_landlord = experiment_info[0] # extract the llm used for the renter
+        experiment_info = re.findall(
+            r"bagel-dpo-34b-v0.2|Yi-34B-Chat|Magdeburg|Duisburg|München|Emilia Müller|Max Müller|Maryam Abbasi|Farhad Abbasi|Yi-Nuo|Haoyu Wang?",
+            name,
+        )
+        model_landlord = experiment_info[0]  # extract the llm used for the renter
         renter_name = experiment_info[1]
-        model_renter = experiment_info[2] # extract the llm used for the landlord
+        model_renter = experiment_info[2]  # extract the llm used for the landlord
         city = experiment_info[3]
         name_path = os.path.join(full_path, name)
-        for experiment_id in os.listdir(name_path): # should work (hopefully)
+        for experiment_id in os.listdir(name_path):  # should work (hopefully)
             experiment_id_path = os.path.join(name_path, experiment_id)
             for file in os.listdir(experiment_id_path):
                 file_path = os.path.join(experiment_id_path, file)
@@ -96,7 +127,9 @@ if os.path.isdir(full_path):
                 if os.path.isfile(file_path):
                     print("File found:", file_path)
                     path_parts = file_path.split(os.path.sep)
-                    eval_result_sub_path = os.path.join(path_parts[1], path_parts[2], path_parts[3])
+                    eval_result_sub_path = os.path.join(
+                        path_parts[1], path_parts[2], path_parts[3]
+                    )
 
                     conversation_history = json.load(open(file_path))
                     evaluator = autogen.AssistantAgent(
@@ -104,48 +137,59 @@ if os.path.isdir(full_path):
                         system_message=f"""You are an evaluation agent asking questions to another 
                         person. Please use only the questions stated below. Do not talk about 
                         anything else. {interview_questionnaire}""",
-                        llm_config=Yi_llm_config, # we discussed to always use Yi here
+                        llm_config=Yi_llm_config,  # we discussed to always use Yi here
                     )
-                    
+
                     # define with which model the renter should answer (the same as in the experiment)
-                    config_renter = Yi_llm_config if model_renter == Yi_config_list[0]["model"] else bagel_llm_config
-                    #if model_renter == Yi_config_list[0]["model"]:
+                    config_renter = (
+                        Yi_llm_config
+                        if model_renter == Yi_config_list[0]["model"]
+                        else bagel_llm_config
+                    )
+                    # if model_renter == Yi_config_list[0]["model"]:
                     #    config_renter = Yi_llm_config,
-                    #elif model_renter == bagel_config_list[0]["model"]:
+                    # elif model_renter == bagel_config_list[0]["model"]:
                     #    config_renter = bagel_llm_config
 
                     renter = autogen.AssistantAgent(
-                        name= renter_name,
+                        name=renter_name,
                         system_message=f"""Hello, my name is {renter_name}. I will be interviewed. 
                         I will just answer the each question I was asked and give no additional information.""",
-                        llm_config= config_renter
+                        llm_config=config_renter,
                     )
-                    
+
                     # define with which model the landlord should answer (the same as in the experiment)
-                    config_landlord = Yi_llm_config if model_landlord == Yi_config_list[0]["model"] else bagel_llm_config
-                    #if model_landlord == Yi_config_list[0]["model"]:
+                    config_landlord = (
+                        Yi_llm_config
+                        if model_landlord == Yi_config_list[0]["model"]
+                        else bagel_llm_config
+                    )
+                    # if model_landlord == Yi_config_list[0]["model"]:
                     #    config_landlord = Yi_llm_config,
-                    #elif model_landlord == bagel_config_list[0]["model"]:
+                    # elif model_landlord == bagel_config_list[0]["model"]:
                     #    config_landlord = bagel_llm_config
-                        
+
                     landlord = autogen.AssistantAgent(
                         name="Peter Schmidt",
                         system_message="""Hello, my name is Peter Schmidt. I will be interviewed. 
                         I will just answer the each question I was asked and give no additional information.""",
-                        llm_config= config_landlord
+                        llm_config=config_landlord,
                     )
 
-                    evaluator_renter_chat = autogen.GroupChat( #GroupChat
+                    evaluator_renter_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, renter],
                         messages=conversation_history,
-                        max_round=12, #because we have 6 questions
+                        max_round=12,  # because we have 6 questions
                         speaker_selection_method="round_robin",
                         allow_repeat_speaker=False,
                     )
 
                     evaluator_renter_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_renter_chat, llm_config=Yi_llm_config,
-                        code_execution_config={"use_docker": False}# should this also be Yi?
+                        groupchat=evaluator_renter_chat,
+                        llm_config=Yi_llm_config,
+                        code_execution_config={
+                            "use_docker": False
+                        },  # should this also be Yi?
                     )
 
                     evaluator.initiate_chat(
@@ -156,8 +200,8 @@ if os.path.isdir(full_path):
                         groupchat=evaluator_renter_chat,
                         path=os.path.join(evaluation_folder, eval_result_sub_path),
                     )
-                    
-                    evaluator_landlord_chat = autogen.GroupChat( # GroupChat
+
+                    evaluator_landlord_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, landlord],
                         messages=conversation_history,
                         max_round=12,
@@ -166,8 +210,11 @@ if os.path.isdir(full_path):
                     )
 
                     evaluator_landlord_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_landlord_chat, llm_config=Yi_llm_config,
-                        code_execution_config={"use_docker": False} # should this also be Yi?
+                        groupchat=evaluator_landlord_chat,
+                        llm_config=Yi_llm_config,
+                        code_execution_config={
+                            "use_docker": False
+                        },  # should this also be Yi?
                     )
 
                     evaluator.initiate_chat(
