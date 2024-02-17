@@ -2,7 +2,7 @@
 ## It takes just 3 conversations per name and evaluates them.
 
 from components.experiment.BaseExperiment import BaseExperiment
-from pyautogen import AssistantAgent
+from autogen import AssistantAgent
 
 # from components.common.variant_testing_helper import single_factor_variants_renter_name
 import autogen
