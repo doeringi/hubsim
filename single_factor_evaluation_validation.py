@@ -154,8 +154,9 @@ if os.path.isdir(full_path):
 
                     renter = EvaluationAgent(#autogen.AssistantAgent(
                         name=renter_name,
-                        system_message=f"""Hello, my name is {renter_name}. I will be interviewed. 
-                        I will just answer the each question I was asked and give no additional information.""",
+                        system_message=f"""You are the potential tenant. You will be interviewed about the negotiation with your potential landlord.
+                        This was the conversation you had {conversation_history}. 
+                        You will just answer the question you were asked and give no additional information.""",
                         llm_config=config_renter,
                     )
                     #)
@@ -173,15 +174,16 @@ if os.path.isdir(full_path):
 
                     landlord = EvaluationAgent(#autogen.AssistantAgent(
                         name="Peter Schmidt",
-                        system_message="""Hello, my name is Peter Schmidt. I will be interviewed. 
-                        I will just answer the each question I was asked and give no additional information.""",
+                        system_message=f"""You are the landlord. You will be interviewed about the negotiation with a potential tenant.
+                        This was the conversation you had {conversation_history}.
+                        You will just answer the question you were asked and give no additional information.""",
                         llm_config=config_landlord,
                     )
                     #)
                     
                     evaluator_renter_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, renter],
-                        messages=conversation_history,
+                        messages=[],
                         max_round=12,  # because we have 6 questions
                         speaker_selection_method="round_robin",
                         allow_repeat_speaker=False,
@@ -206,7 +208,7 @@ if os.path.isdir(full_path):
 
                     evaluator_landlord_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, landlord],
-                        messages=conversation_history,
+                        messages=[],
                         max_round=12,
                         speaker_selection_method="round_robin",
                         allow_repeat_speaker=False,
