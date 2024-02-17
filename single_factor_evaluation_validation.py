@@ -137,13 +137,13 @@ if os.path.isdir(full_path):
                         system_message=f"""You are an evaluation agent asking questions to another 
                         person. Please use only the questions stated below. Do not talk about 
                         anything else. {interview_questionnaire}""",
-                        llm_config=Yi_llm_config,  # we discussed to always use Yi here
+                        llm_config=Yi_config_list,  # we discussed to always use Yi here
                     )
                     )
 
                     # define with which model the renter should answer (the same as in the experiment)
                     config_renter = (
-                        Yi_llm_config
+                        Yi_config_list
                         if model_renter == Yi_config_list[0]["model"]
                         else bagel_llm_config
                     )
@@ -162,7 +162,7 @@ if os.path.isdir(full_path):
 
                     # define with which model the landlord should answer (the same as in the experiment)
                     config_landlord = (
-                        Yi_llm_config
+                        Yi_config_list
                         if model_landlord == Yi_config_list[0]["model"]
                         else bagel_llm_config
                     )
