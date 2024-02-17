@@ -132,7 +132,7 @@ if os.path.isdir(full_path):
                     )
 
                     conversation_history = json.load(open(file_path))
-                    evaluator = EvaluationAgent.__init__(autogen.AssistantAgent(
+                    evaluator = EvaluationAgent(autogen.AssistantAgent(
                         name="Evaluator",
                         system_message=f"""You are an evaluation agent asking questions to another 
                         person. Please use only the questions stated below. Do not talk about 
@@ -171,7 +171,7 @@ if os.path.isdir(full_path):
                     # elif model_landlord == bagel_config_list[0]["model"]:
                     #    config_landlord = bagel_llm_config
 
-                    landlord = EvaluationAgent.__init__(autogen.AssistantAgent(
+                    landlord = EvaluationAgent(autogen.AssistantAgent(
                         name="Peter Schmidt",
                         system_message="""Hello, my name is Peter Schmidt. I will be interviewed. 
                         I will just answer the each question I was asked and give no additional information.""",
