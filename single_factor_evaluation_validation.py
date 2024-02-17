@@ -139,7 +139,7 @@ if os.path.isdir(full_path):
                         anything else. {interview_questionnaire}""",
                         llm_config=Yi_llm_config,  # we discussed to always use Yi here
                     )
-                    )
+                    ).__init__()
 
                     # define with which model the renter should answer (the same as in the experiment)
                     config_renter = (
@@ -152,13 +152,13 @@ if os.path.isdir(full_path):
                     # elif model_renter == bagel_config_list[0]["model"]:
                     #    config_renter = bagel_llm_config
 
-                    renter = EvaluationAgent.__init__(autogen.AssistantAgent(
+                    renter = EvaluationAgent(autogen.AssistantAgent(
                         name=renter_name,
                         system_message=f"""Hello, my name is {renter_name}. I will be interviewed. 
                         I will just answer the each question I was asked and give no additional information.""",
                         llm_config=config_renter,
                     )
-                    )
+                    ).__init__()
 
                     # define with which model the landlord should answer (the same as in the experiment)
                     config_landlord = (
@@ -177,7 +177,7 @@ if os.path.isdir(full_path):
                         I will just answer the each question I was asked and give no additional information.""",
                         llm_config=config_landlord,
                     )
-                    )
+                    ).__init__()
 
                     evaluator_renter_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, renter],
