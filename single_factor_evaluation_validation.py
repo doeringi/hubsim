@@ -132,18 +132,18 @@ if os.path.isdir(full_path):
                     )
 
                     conversation_history = json.load(open(file_path))
-                    evaluator = EvaluationAgent(autogen.AssistantAgent(
+                    evaluator = EvaluationAgent(#autogen.AssistantAgent(
                         name="Evaluator",
                         system_message=f"""You are an evaluation agent asking questions to another 
                         person. Please use only the questions stated below. Do not talk about 
                         anything else. {interview_questionnaire}""",
-                        llm_config=Yi_config_list,  # we discussed to always use Yi here
+                        llm_config=Yi_llm_config,  # we discussed to always use Yi here
                     )
-                    )
+                    #)
 
                     # define with which model the renter should answer (the same as in the experiment)
                     config_renter = (
-                        Yi_config_list
+                        Yi_llm_config
                         if model_renter == Yi_config_list[0]["model"]
                         else bagel_llm_config
                     )
@@ -152,17 +152,17 @@ if os.path.isdir(full_path):
                     # elif model_renter == bagel_config_list[0]["model"]:
                     #    config_renter = bagel_llm_config
 
-                    renter = EvaluationAgent(autogen.AssistantAgent(
+                    renter = EvaluationAgent(#autogen.AssistantAgent(
                         name=renter_name,
                         system_message=f"""Hello, my name is {renter_name}. I will be interviewed. 
                         I will just answer the each question I was asked and give no additional information.""",
                         llm_config=config_renter,
                     )
-                    )
+                    #)
 
                     # define with which model the landlord should answer (the same as in the experiment)
                     config_landlord = (
-                        Yi_config_list
+                        Yi_llm_config
                         if model_landlord == Yi_config_list[0]["model"]
                         else bagel_llm_config
                     )
@@ -171,13 +171,13 @@ if os.path.isdir(full_path):
                     # elif model_landlord == bagel_config_list[0]["model"]:
                     #    config_landlord = bagel_llm_config
 
-                    landlord = EvaluationAgent(autogen.AssistantAgent(
+                    landlord = EvaluationAgent(#autogen.AssistantAgent(
                         name="Peter Schmidt",
                         system_message="""Hello, my name is Peter Schmidt. I will be interviewed. 
                         I will just answer the each question I was asked and give no additional information.""",
                         llm_config=config_landlord,
                     )
-                    )
+                    #)
                     
                     evaluator_renter_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, renter],
