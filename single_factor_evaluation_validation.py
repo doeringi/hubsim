@@ -57,7 +57,7 @@ experiment_helper = BaseExperiment()
 now = datetime.now() # current date and time
 base_path = "single-factor-experiments"
 experiment_path = "Yi-34B-Chat-Yi-34B-Chat"
-evaluation_folder = "single-factor-controlled-evaluation-results-validation-" + now.strftime("%m%d%Y%/%H")
+evaluation_folder = "single-factor-controlled-evaluation-results-validation-" + now.strftime("%m%d%Y%")
 
 full_path = os.path.join(base_path, experiment_path)
 print("Full path:", full_path)
