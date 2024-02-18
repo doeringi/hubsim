@@ -1,3 +1,4 @@
+
 from itertools import product
 from jinja2 import Template
 import yaml
@@ -10,7 +11,7 @@ _jinja_template_string = """You are {{name}}.
 \n Never forget the following rules: 
 - Do not tell the other party the facts stated above. 
 - Only talk about the rental price. Do not talk about additional responsibilities, lease term conditions, or utility costs like heating, water, or electricity.
-- If you want to accept the rental price proposed by the other party respond with the follwing sentence, where x is the final price that you want to agree with: 'I agree to the price of [x] Euro!' 
+- If you want to accept the rental price proposed by the other party respond with the following sentence, where x is the final price that you want to agree with: 'I agree to the price of [x] Euro!' 
 - If you don't want to continue the negotiation respond with the following sentence with a reason why you don't want to continue: 'I don't want to continue the negotiation, because [reason].'
 - If you and the other party agreed on a price, the negotiation will be terminated. Respond with the following sentence: 'TERMINATE'
 - If you and the other party did not agree on a price, the negotiation will be terminated. Respond with the following sentence: 'TERMINATE'"""
