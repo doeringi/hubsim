@@ -175,8 +175,8 @@ if os.path.isdir(full_path):
 
                     landlord = EvaluationAgent(#autogen.AssistantAgent(
                         name="Peter Schmidt",
-                        system_message=f"""You are the landlord. 
-                        You will be interviewed about the negotiation with a potential tenant.
+                        system_message=f"""You are the landlord Peter Schmidt. 
+                        You will be interviewed about the negotiation you had with a potential tenant.
                         This was the conversation you had {conversation_history}.
                         You will just answer the question you were asked and give no additional information.""",
                         llm_config=config_landlord,
