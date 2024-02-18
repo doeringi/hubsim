@@ -203,7 +203,7 @@ if os.path.isdir(full_path):
 
                     experiment_helper.save_conversation(
                         groupchat=evaluator_renter_chat,
-                        path=os.path.join(evaluation_folder, eval_result_sub_path),
+                        path=os.path.join(evaluation_folder, eval_result_sub_path, "renter"),
                     )
 
                     evaluator_landlord_chat = autogen.GroupChat(  # GroupChat
@@ -228,7 +228,7 @@ if os.path.isdir(full_path):
 
                     experiment_helper.save_conversation(
                         groupchat=evaluator_landlord_chat,
-                        path=os.path.join(evaluation_folder, eval_result_sub_path),
+                        path=os.path.join(evaluation_folder, eval_result_sub_path, "landlord"),
                     )
 
                 else:
