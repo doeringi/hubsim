@@ -38,7 +38,7 @@ bagel_config_list = [
 # set temperature for sampling
 Yi_llm_config = {
     "config_list": Yi_config_list,
-    "cache_seed": 42,
+    "cache_seed": 40,
     "temperature": 0.6,
     #               "timeout": 30,
     #               "max_retries": 5
@@ -47,7 +47,7 @@ Yi_llm_config = {
 
 bagel_llm_config = {
     "config_list": bagel_config_list,
-    "cache_seed": 42,
+    "cache_seed": 40,
     "temperature": 0.6,
     #               "timeout": 30,
     #               "max_retries": 5
@@ -154,32 +154,11 @@ if os.path.isdir(full_path):
 
                     renter = EvaluationAgent(#autogen.AssistantAgent(
                         name=renter_name,
-                        system_message=f"""You are the potential tenant in the conversation. 
+                        system_message=f"""You are the potential tenant {renter_name} in the conversation. 
                         You will be interviewed about the negotiation with your potential landlord.
                         This was the conversation you had {conversation_history}. 
                         You will just answer the question you were asked and give no additional information.""",
                         llm_config=config_renter,
-                    )
-                    #)
-
-                    # define with which model the landlord should answer (the same as in the experiment)
-                    config_landlord = (
-                        Yi_llm_config
-                        if model_landlord == Yi_config_list[0]["model"]
-                        else bagel_llm_config
-                    )
-                    # if model_landlord == Yi_config_list[0]["model"]:
-                    #    config_landlord = Yi_llm_config,
-                    # elif model_landlord == bagel_config_list[0]["model"]:
-                    #    config_landlord = bagel_llm_config
-
-                    landlord = EvaluationAgent(#autogen.AssistantAgent(
-                        name="Peter Schmidt",
-                        system_message=f"""You are the landlord Peter Schmidt. 
-                        You will be interviewed about the negotiation you had with a potential tenant.
-                        This was the conversation you had {conversation_history}.
-                        You will just answer the question you were asked and give no additional information.""",
-                        llm_config=config_landlord,
                     )
                     #)
                     
@@ -208,6 +187,27 @@ if os.path.isdir(full_path):
                         path=os.path.join(evaluation_folder, eval_result_sub_path, "renter"),
                     )
 
+                    # define with which model the landlord should answer (the same as in the experiment)
+                    config_landlord = (
+                        Yi_llm_config
+                        if model_landlord == Yi_config_list[0]["model"]
+                        else bagel_llm_config
+                    )
+                    # if model_landlord == Yi_config_list[0]["model"]:
+                    #    config_landlord = Yi_llm_config,
+                    # elif model_landlord == bagel_config_list[0]["model"]:
+                    #    config_landlord = bagel_llm_config
+
+                    landlord = EvaluationAgent(#autogen.AssistantAgent(
+                        name="Peter Schmidt",
+                        system_message=f"""You are the landlord Peter Schmidt. 
+                        You will be interviewed about the negotiation you had with a potential tenant.
+                        This was the conversation you had {conversation_history}.
+                        You will just answer the question you were asked and give no additional information.""",
+                        llm_config=config_landlord,
+                    )
+                    #)
+                    
                     evaluator_landlord_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, landlord],
                         messages=[],
