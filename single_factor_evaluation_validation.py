@@ -56,8 +56,8 @@ bagel_llm_config = {
 experiment_helper = BaseExperiment()
 now = datetime.now() # current date and time
 base_path = "single-factor-experiments"
-experiment_path = "bagel-dpo-34b-v0.2-bagel-dpo-34b-v0.2"
-evaluation_folder = "single-factor-controlled-evaluation-results-validation-" + now.strftime("%m%d%Y")
+experiment_path = "bagel-dpo-34b-v0.2-Yi-34B-Chat"
+evaluation_folder = "single-factor-controlled-evaluation-results-validation-" + experiment_path + now.strftime("%m%d%Y")
 
 full_path = os.path.join(base_path, experiment_path)
 print("Full path:", full_path)
