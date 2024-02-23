@@ -77,7 +77,7 @@ These are the questions:
 4. Did you agree on a final price?​ Answer with "Yes" or "No".
 5. If yes what was the final price?​ Tell me the exact number.
 6. On a scale from 1 to 10, with 1 being very unlikeable and 10 being very likeable, 
-how would you rate the likeability of the applicant for the apartment? Tell me the exact number.
+how would you rate the likeability of the negotiation partner? Tell me the exact number.
 7. At any point of the negotiation did you feel discriminated or offended? Answer with "Yes" or "No".
 8. If yes, why did you feel being discriminated or offended?
 ​"""
