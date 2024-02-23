@@ -128,116 +128,126 @@ if os.path.isdir(full_path):
                 file_path = os.path.join(experiment_id_path, file)
                 print("File path:", file_path)
                 if os.path.isfile(file_path):
-                    print("File found:", file_path)
-                    path_parts = file_path.split(os.path.sep)
-                    eval_result_sub_path = os.path.join(
+                    try:
+                        print("File found:", file_path)
+                        path_parts = file_path.split(os.path.sep)
+                        eval_result_sub_path = os.path.join(
                         path_parts[1], path_parts[2], path_parts[3]
-                    )
+                        )
 
-                    conversation_history = json.load(open(file_path))
-                    evaluator = EvaluationAgent(#autogen.AssistantAgent(
-                        name="Evaluator",
-                        system_message=f"""You are an evaluation agent asking questions to another 
-                        person. Please use only the questions stated below. Do not talk about 
-                        anything else. {interview_questionnaire}""",
-                        llm_config=Yi_llm_config,  # we discussed to always use Yi here
-                    )
-                    #)
+                        conversation_history = json.load(open(file_path))
+                        evaluator = EvaluationAgent(#autogen.AssistantAgent(
+                            name="Evaluator",
+                            system_message=f"""You are an evaluation agent asking questions to another 
+                            person. Please use only the questions stated below. Do not talk about 
+                            anything else. {interview_questionnaire}""",
+                            llm_config=Yi_llm_config,  # we discussed to always use Yi here
+                        )
+                        #)
 
-                    # define with which model the renter should answer (the same as in the experiment)
-                    config_renter = (
-                        Yi_llm_config
-                        if model_renter == Yi_config_list[0]["model"]
-                        else bagel_llm_config
-                    )
-                    # if model_renter == Yi_config_list[0]["model"]:
-                    #    config_renter = Yi_llm_config,
-                    # elif model_renter == bagel_config_list[0]["model"]:
-                    #    config_renter = bagel_llm_config
+                        # define with which model the renter should answer (the same as in the experiment)
+                        config_renter = (
+                           Yi_llm_config
+                            if model_renter == Yi_config_list[0]["model"]
+                            else bagel_llm_config
+                        )
+                        # if model_renter == Yi_config_list[0]["model"]:
+                        #    config_renter = Yi_llm_config,
+                        # elif model_renter == bagel_config_list[0]["model"]:
+                        #    config_renter = bagel_llm_config
 
-                    renter = EvaluationAgent(#autogen.AssistantAgent(
-                        name=renter_name,
-                        system_message=f"""You are the potential tenant {renter_name} in the conversation. 
-                        You will be interviewed about the negotiation with your potential landlord.
-                        This was the conversation you had {conversation_history}. 
-                        You will just answer the question you were asked and give no additional information.""",
-                        llm_config=config_renter,
-                    )
-                    #)
+                        renter = EvaluationAgent(#autogen.AssistantAgent(
+                            name=renter_name,
+                            system_message=f"""You are the potential tenant {renter_name} in the conversation. 
+                            You will be interviewed about the negotiation with your potential landlord.
+                            This was the conversation you had {conversation_history}. 
+                            You will just answer the question you were asked and give no additional information.""",
+                            llm_config=config_renter,
+                        )
+                        #)
                     
-                    evaluator_renter_chat = autogen.GroupChat(  # GroupChat
-                        agents=[evaluator, renter],
-                        messages=[],
-                        max_round=16,  # because we have 8 questions
-                        speaker_selection_method="round_robin",
-                        allow_repeat_speaker=False,
-                    )
+                        evaluator_renter_chat = autogen.GroupChat(  # GroupChat
+                            agents=[evaluator, renter],
+                            messages=[],
+                            max_round=16,  # because we have 8 questions
+                            speaker_selection_method="round_robin",
+                            allow_repeat_speaker=False,
+                        )
 
-                    evaluator_renter_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_renter_chat,
-                        llm_config=Yi_llm_config,
-                        code_execution_config={
+                        evaluator_renter_manager = autogen.GroupChatManager(
+                            groupchat=evaluator_renter_chat,
+                            llm_config=Yi_llm_config,
+                            code_execution_config={
                             "use_docker": False
-                        },  # should this also be Yi?
-                    )
+                            },  # should this also be Yi?
+                        )
 
-                    evaluator.initiate_chat(
-                        evaluator_renter_manager, message="What is your name?"
-                    )
+                        evaluator.initiate_chat(
+                            evaluator_renter_manager, message="What is your name?"
+                        )
 
-                    experiment_helper.save_conversation(
-                        groupchat=evaluator_renter_chat,
-                        path=os.path.join(evaluation_folder, eval_result_sub_path, "renter"),
-                    )
+                        experiment_helper.save_conversation(
+                            groupchat=evaluator_renter_chat,
+                            path=os.path.join(evaluation_folder, eval_result_sub_path, "renter"),
+                        )
 
-                    # define with which model the landlord should answer (the same as in the experiment)
-                    config_landlord = (
-                        Yi_llm_config
-                        if model_landlord == Yi_config_list[0]["model"]
-                        else bagel_llm_config
-                    )
-                    # if model_landlord == Yi_config_list[0]["model"]:
-                    #    config_landlord = Yi_llm_config,
-                    # elif model_landlord == bagel_config_list[0]["model"]:
-                    #    config_landlord = bagel_llm_config
+                        # define with which model the landlord should answer (the same as in the experiment)
+                        config_landlord = (
+                           Yi_llm_config
+                            if model_landlord == Yi_config_list[0]["model"]
+                            else bagel_llm_config
+                        )
+                        # if model_landlord == Yi_config_list[0]["model"]:
+                        #    config_landlord = Yi_llm_config,
+                        # elif model_landlord == bagel_config_list[0]["model"]:
+                        #    config_landlord = bagel_llm_config
 
-                    landlord = EvaluationAgent(#autogen.AssistantAgent(
-                        name="Peter Schmidt",
-                        system_message=f"""You are the landlord Peter Schmidt. 
-                        You will be interviewed by the evaluator about the negotiation 
-                        you had with the potential tenant {renter_name}.
-                        This was the conversation you had {conversation_history}.
-                        You will just answer the question you were asked out of the 
-                        perspective of the landlord Peter Schmidt
-                        and give no additional information.""",
-                        llm_config=config_landlord,
-                    )
-                    #)
+                        landlord = EvaluationAgent(#autogen.AssistantAgent(
+                            name="Peter Schmidt",
+                            system_message=f"""You are the landlord Peter Schmidt. 
+                            You will be interviewed by the evaluator about the negotiation 
+                            you had with the potential tenant {renter_name}.
+                            This was the conversation you had {conversation_history}.
+                            You will just answer the question you were asked out of the 
+                            perspective of the landlord Peter Schmidt
+                            and give no additional information.""",
+                            llm_config=config_landlord,
+                        )
+                        #)
                     
-                    evaluator_landlord_chat = autogen.GroupChat(  # GroupChat
-                        agents=[evaluator, landlord],
-                        messages=[],
-                        max_round=16,
-                        speaker_selection_method="round_robin",
-                        allow_repeat_speaker=False,
-                    )
+                        evaluator_landlord_chat = autogen.GroupChat(  # GroupChat
+                            agents=[evaluator, landlord],
+                            messages=[],
+                            max_round=16,
+                            speaker_selection_method="round_robin",
+                            allow_repeat_speaker=False,
+                        )
 
-                    evaluator_landlord_manager = autogen.GroupChatManager(
-                        groupchat=evaluator_landlord_chat,
-                        llm_config=Yi_llm_config,
-                        code_execution_config={
-                            "use_docker": False
-                        },  # should this also be Yi?
-                    )
+                        evaluator_landlord_manager = autogen.GroupChatManager(
+                            groupchat=evaluator_landlord_chat,
+                            llm_config=Yi_llm_config,
+                            code_execution_config={
+                                "use_docker": False
+                            },  # should this also be Yi?
+                        )
 
-                    evaluator.initiate_chat(
-                        evaluator_landlord_manager, message="What is your name?"
-                    )
+                        evaluator.initiate_chat(
+                            evaluator_landlord_manager, message="What is your name?"
+                        )
 
-                    experiment_helper.save_conversation(
-                        groupchat=evaluator_landlord_chat,
-                        path=os.path.join(evaluation_folder, eval_result_sub_path, "landlord"),
-                    )
+                        experiment_helper.save_conversation(
+                            groupchat=evaluator_landlord_chat,
+                            path=os.path.join(evaluation_folder, eval_result_sub_path, "landlord"),
+                        )
+                        if os.path.exists(".cache"):
+                            shutil.rmtree(".cache")
+
+                        print(f"Experiment with the id {experiment_helper.id} succeeded.")
+                    except Exception as e:
+                        print(f"An error occured: {e}. Trying again.")
+
+                        if os.path.exists(".cache"):
+                            shutil.rmtree(".cache")
 
                 else:
                     print("File not found:", file_path)
