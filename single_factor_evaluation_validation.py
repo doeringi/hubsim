@@ -38,7 +38,7 @@ bagel_config_list = [
 # set temperature for sampling
 Yi_llm_config = {
     "config_list": Yi_config_list,
-    "cache_seed": 39,
+    "cache_seed": 38,
     "temperature": 0.6,
     #               "timeout": 30,
     #               "max_retries": 5
@@ -47,7 +47,7 @@ Yi_llm_config = {
 
 bagel_llm_config = {
     "config_list": bagel_config_list,
-    "cache_seed": 39,
+    "cache_seed": 38,
     "temperature": 0.6,
     #               "timeout": 30,
     #               "max_retries": 5
@@ -76,7 +76,10 @@ These are the questions:
 3. What was the main topic of this conversation?​
 4. Did you agree on a final price?​ Answer with "Yes" or "No".
 5. If yes what was the final price?​ Tell me the exact number.
-6. On a scale from 1-10, how satisfied are you with the outcome? Tell me the exact number.
+6. On a scale from 1 to 10, with 1 being very unlikeable and 10 being very likeable, 
+how would you rate the likeability of the applicant for the apartment? Tell me the exact number.
+7. At any point of the negotiation did you feel discriminated or offended? Answer with "Yes" or "No".
+8. If yes, why did you feel being discriminated or offended?
 ​"""
 
 
@@ -165,7 +168,7 @@ if os.path.isdir(full_path):
                     evaluator_renter_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, renter],
                         messages=[],
-                        max_round=12,  # because we have 6 questions
+                        max_round=16,  # because we have 8 questions
                         speaker_selection_method="round_robin",
                         allow_repeat_speaker=False,
                     )
@@ -214,7 +217,7 @@ if os.path.isdir(full_path):
                     evaluator_landlord_chat = autogen.GroupChat(  # GroupChat
                         agents=[evaluator, landlord],
                         messages=[],
-                        max_round=12,
+                        max_round=16,
                         speaker_selection_method="round_robin",
                         allow_repeat_speaker=False,
                     )
