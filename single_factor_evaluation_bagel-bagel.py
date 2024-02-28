@@ -55,11 +55,15 @@ bagel_llm_config = {
     #               "max_retries": 5
 }
 
+
+
 experiment_helper = BaseExperiment()
 now = datetime.now() # current date and time
 base_path = "single-factor-experiments"
 experiment_path =  "bagel-dpo-34b-v0.2-bagel-dpo-34b-v0.2" # "bagel-dpo-34b-v0.2-Yi-34B-Chat" 
 evaluation_folder = "single-factor-controlled-evaluation-results-validation-" + now.strftime("%m%d%Y") # + experiment_path
+
+
 
 full_path = os.path.join(base_path, experiment_path)
 print("Full path:", full_path)
@@ -111,6 +115,13 @@ class EvaluationAgent(AssistantAgent):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+results_path = "single-factor-controlled-evaluation-results-validation-02282024\bagel-dpo-34b-v0.2-bagel-dpo-34b-v0.2"
+all_interviews = list()
+for name in os.listdir(results_path):
+    name_city_path = os.path.join(name, results_path)
+    for experiment_id in os.listdir(name_city_path):
+        all_interviews.append(experiment_id)
+print("List of all recorded interviews: ", all_interviews)
 
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
@@ -129,7 +140,8 @@ if os.path.isdir(full_path):
             for file in os.listdir(experiment_id_path):
                 file_path = os.path.join(experiment_id_path, file)
                 print("File path:", file_path)
-                if os.path.isfile(file_path):
+                #if os.path.isfile(file_path) :
+                if (os.path.isfile(file_path)) and (file not in all_interviews):
                     try:
                         print("File found:", file_path)
                         path_parts = file_path.split(os.path.sep)
