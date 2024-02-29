@@ -142,7 +142,7 @@ if os.path.isdir(full_path):
                 file_path = os.path.join(experiment_id_path, file)
                 print("File path:", file_path)
                 #if os.path.isfile(file_path) :
-                if (os.path.isfile(file_path)) and (file not in all_interviews):
+                if (os.path.isfile(file_path)) and (experiment_id not in all_interviews):
                     try:
                         print("File found:", file_path)
                         path_parts = file_path.split(os.path.sep)
