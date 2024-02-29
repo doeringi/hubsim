@@ -112,8 +112,8 @@ class EvaluationAgent(AssistantAgent):
         super().__init__(*args, **kwargs)
 
 results_path = "COMPLETE_bagel-dpo-34b-v0.2-Yi-34B-Chat"
-#all_interviews = list()
-all_interviews = ["a8cadb78-9694-4d8f-9f4a-c3c1d6aa20c8"]
+all_interviews = list()
+#all_interviews = ["a8cadb78-9694-4d8f-9f4a-c3c1d6aa20c8"]
 #for name in os.listdir(results_path):
 #     name_city_path = os.path.join(results_path, name)
 #     for experiment_id in os.listdir(name_city_path):
@@ -138,7 +138,7 @@ if os.path.isdir(full_path):
             for file in os.listdir(experiment_id_path):
                 file_path = os.path.join(experiment_id_path, file)
                 print("File path:", file_path)
-                if (os.path.isfile(file_path)) and (experiment_id in all_interviews):
+                if (os.path.isfile(file_path)) and (experiment_id not in all_interviews):
                     try:
                         print("File found:", file_path)
                         path_parts = file_path.split(os.path.sep)
