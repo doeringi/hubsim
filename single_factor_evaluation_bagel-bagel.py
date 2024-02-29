@@ -115,12 +115,13 @@ class EvaluationAgent(AssistantAgent):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-results_path = "single-factor-controlled-evaluation-results-validation-02282024\bagel-dpo-34b-v0.2-bagel-dpo-34b-v0.2"
+results_path = "COMPLETE_bagel-dpo-34b-v0.2-bagel-dpo-34b-v0.2"
 all_interviews = list()
 for name in os.listdir(results_path):
-    name_city_path = os.path.join(name, results_path)
+    name_city_path = os.path.join(results_path, name)
     for experiment_id in os.listdir(name_city_path):
         all_interviews.append(experiment_id)
+print(len(all_interviews))
 print("List of all recorded interviews: ", all_interviews)
 
 if os.path.isdir(full_path):
