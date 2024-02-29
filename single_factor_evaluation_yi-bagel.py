@@ -261,5 +261,7 @@ if os.path.isdir(full_path):
 
                 else:
                     print("File not found:", file_path)
+                    if os.path.exists(".cache"):
+                            shutil.rmtree(".cache")
 else:
     print("Directory not found:", full_path)
