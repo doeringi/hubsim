@@ -111,6 +111,14 @@ class EvaluationAgent(AssistantAgent):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+results_path = "COMPLETE_Yi-34B-Chat-Yi-34B-Chat"
+all_interviews = list()
+for name in os.listdir(results_path):
+    name_city_path = os.path.join(results_path, name)
+    for experiment_id in os.listdir(name_city_path):
+        all_interviews.append(experiment_id)
+print(len(all_interviews))
+print("List of all recorded interviews: ", all_interviews)
 
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
@@ -129,7 +137,7 @@ if os.path.isdir(full_path):
             for file in os.listdir(experiment_id_path):
                 file_path = os.path.join(experiment_id_path, file)
                 print("File path:", file_path)
-                if os.path.isfile(file_path):
+                if (os.path.isfile(file_path)) and (experiment_id not in all_interviews):
                     try:
                         print("File found:", file_path)
                         path_parts = file_path.split(os.path.sep)
@@ -253,5 +261,7 @@ if os.path.isdir(full_path):
 
                 else:
                     print("File not found:", file_path)
+                    if os.path.exists(".cache"):
+                            shutil.rmtree(".cache")
 else:
     print("Directory not found:", full_path)

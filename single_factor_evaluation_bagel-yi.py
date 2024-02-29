@@ -21,7 +21,7 @@ os.environ['OPENAI_API_KEY'] = "Null"
 Yi_config_list = [
     {
         "model": "Yi-34B-Chat",
-        "base_url": "http://localhost:8001/v1",
+        "base_url": "http://localhost:8000/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
     }
 ]
@@ -29,7 +29,7 @@ Yi_config_list = [
 bagel_config_list = [
     {
         "model": "bagel-dpo-34b-v0.2",
-        "base_url": "http://localhost:8001/v1",
+        "base_url": "http://localhost:8000/v1",
         "api_key": "NULL",  # if not needed add NULL as placeholder
     }
 ]
@@ -58,7 +58,7 @@ bagel_llm_config = {
 experiment_helper = BaseExperiment()
 now = datetime.now() # current date and time
 base_path = "single-factor-experiments"
-experiment_path =  "bagel-dpo-34b-v0.2-Yi-34B-Chat" 
+experiment_path =  "bagel-dpo-34b-v0.2-Yi-34B-Chat"  # "Yi-34B-Chat-bagel-dpo-34b-v0.2"
 evaluation_folder = "single-factor-controlled-evaluation-results-validation-" + now.strftime("%m%d%Y") # + experiment_path
 
 full_path = os.path.join(base_path, experiment_path)
@@ -111,6 +111,15 @@ class EvaluationAgent(AssistantAgent):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+results_path = "COMPLETE_bagel-dpo-34b-v0.2-Yi-34B-Chat"
+all_interviews = list()
+#all_interviews = ["a8cadb78-9694-4d8f-9f4a-c3c1d6aa20c8"]
+#for name in os.listdir(results_path):
+#     name_city_path = os.path.join(results_path, name)
+#     for experiment_id in os.listdir(name_city_path):
+#         all_interviews.append(experiment_id)
+print(len(all_interviews))
+print("List of all recorded interviews: ", all_interviews)
 
 if os.path.isdir(full_path):
     for name in os.listdir(full_path):
@@ -129,7 +138,7 @@ if os.path.isdir(full_path):
             for file in os.listdir(experiment_id_path):
                 file_path = os.path.join(experiment_id_path, file)
                 print("File path:", file_path)
-                if os.path.isfile(file_path):
+                if (os.path.isfile(file_path)) and (experiment_id not in all_interviews):
                     try:
                         print("File found:", file_path)
                         path_parts = file_path.split(os.path.sep)
