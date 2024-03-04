@@ -112,7 +112,8 @@ class EvaluationAgent(AssistantAgent):
         super().__init__(*args, **kwargs)
 
 results_path = "COMPLETE_Yi-34B-Chat-bagel-dpo-34b-v0.2"
-all_interviews = ["6910f230-1c29-4ee5-b261-6bf8d3045449"]
+#all_interviews = ["6910f230-1c29-4ee5-b261-6bf8d3045449"]
+all_interviews = []
 for name in os.listdir(results_path):
     name_city_path = os.path.join(results_path, name)
     for experiment_id in os.listdir(name_city_path):
