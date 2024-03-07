@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{davidson_evaluating_2024}
+Davidson, T.R., Veselovsky, V., Josifoski, M., Peyrard, M., Bosselut, A.,
+  Kosinski, M., West, R.: Evaluating {Language} {Model} {Agency} through
+  {Negotiations} (Jan 2024), \url{http://arxiv.org/abs/2401.04536},
+  arXiv:2401.04536 [cs]
+
+\bibitem{huang_benchmarking_2023}
+Huang, Q., Vora, J., Liang, P., Leskovec, J.: Benchmarking {Large} {Language}
+  {Models} {As} {AI} {Research} {Agents} (Oct 2023).
+  \doi{10.48550/arXiv.2310.03302}, \url{http://arxiv.org/abs/2310.03302},
+  arXiv:2310.03302 [cs]
+
+\bibitem{liu_agentbench_2023}
+Liu, X., Yu, H., Zhang, H., Xu, Y., Lei, X., Lai, H., Gu, Y., Ding, H., Men,
+  K., Yang, K., Zhang, S., Deng, X., Zeng, A., Du, Z., Zhang, C., Shen, S.,
+  Zhang, T., Su, Y., Sun, H., Huang, M., Dong, Y., Tang, J.: {AgentBench}:
+  {Evaluating} {LLMs} as {Agents} (Oct 2023). \doi{10.48550/arXiv.2308.03688},
+  \url{http://arxiv.org/abs/2308.03688}, arXiv:2308.03688 [cs]
+
+\bibitem{park_generative_2023}
+Park, J.S., O'Brien, J.C., Cai, C.J., Morris, M.R., Liang, P., Bernstein, M.S.:
+  Generative {Agents}: {Interactive} {Simulacra} of {Human} {Behavior} (Aug
+  2023). \doi{10.48550/arXiv.2304.03442},
+  \url{http://arxiv.org/abs/2304.03442}, arXiv:2304.03442 [cs]
+
+\bibitem{qian_communicative_2023}
+Qian, C., Cong, X., Liu, W., Yang, C., Chen, W., Su, Y., Dang, Y., Li, J., Xu,
+  J., Li, D., Liu, Z., Sun, M.: Communicative {Agents} for {Software}
+  {Development} (Aug 2023), \url{http://arxiv.org/abs/2307.07924},
+  arXiv:2307.07924 [cs] version: 3
+
+\bibitem{tornberg_simulating_2023}
+T{\"o}rnberg, P., Valeeva, D., Uitermark, J., Bail, C.: Simulating {Social}
+  {Media} {Using} {Large} {Language} {Models} to {Evaluate} {Alternative}
+  {News} {Feed} {Algorithms} (Oct 2023), \url{http://arxiv.org/abs/2310.05984},
+  arXiv:2310.05984 [cs]
+
+\bibitem{wang_rolellm_2023}
+Wang, Z.M., Peng, Z., Que, H., Liu, J., Zhou, W., Wu, Y., Guo, H., Gan, R., Ni,
+  Z., Zhang, M., Zhang, Z., Ouyang, W., Xu, K., Chen, W., Fu, J., Peng, J.:
+  {RoleLLM}: {Benchmarking}, {Eliciting}, and {Enhancing} {Role}-{Playing}
+  {Abilities} of {Large} {Language} {Models} (Oct 2023),
+  \url{http://arxiv.org/abs/2310.00746}, arXiv:2310.00746 [cs]
+
+\end{thebibliography}

@@ -27,9 +27,9 @@
 % If the paper title is too long for the running head, you can set
 % an abbreviated paper title here
 %
-\author{First Author\inst{1}\orcidID{0000-1111-2222-3333} \and
+\author{Nico Döring \and
 Second Author\inst{2,3}\orcidID{1111-2222-3333-4444} \and
-Third Author\inst{3}\orcidID{2222--3333-4444-5555}}
+Third Author\inst{3}\orcidID{2222--3333-4444-5555} \and Fourth Author}
 %
 \authorrunning{F. Author et al.}
 % First names are abbreviated in the running head.
@@ -78,33 +78,84 @@ open-text evaluation questions (discrimination) -> see if relevant
 \section{Limitations}
 \section{Conclusion and Outlook}
 
+\section{Introduction}
+
+Add an introduction here.
+
+
+\section{Related Work}
+
+The rapid improvements of recent large language model capabilities prompted an increasing interest in exploring the potential for agent-based experimental studies and simulations in social science research. Park et al. \cite{park_generative_2023}  simulate and explore an entire human society and its behavioral interactions through an LLM-powered agent architecture which lets agents observe, plan and reflect. The framework of Qian et al. \cite{qian_communicative_2023} shows how LLM agents exhibit efficient collaborative and self-corrective abilities in a software development scenario. Similarily, \cite{huang_benchmarking_2023} conduct experiments on LLM-based research agents which perform classical machine learning research involving tasks such as data processing, architecture design and model training. Törnberg et al. \cite{tornberg_simulating_2023} use LLM-based agents in different social media settings to simulate human behavior on a spectrum of toxic discourse and constructive interactions.
+
+\cite{park_generative_2023} uses gpt3.5-turbo
+\cite{qian_communicative_2023} uses gpt3.5-turbo-16k
+\cite{tornberg_simulating_2023} use gpt-3.5
+\cite{huang_benchmarking_2023} use gpt-4
+
+Negotiation Settings:
+%\cite{guo_gpt_2023}
+%\cite{brookins&debacker_2023}
+%\cite{fu et al_2023} uses GPT and claude
+
+Evaluation of Agents:
+\cite{davidson_evaluating_2024} evaluate chat-bison, claude-2, command, command-light, gpt-4, gpt-3.5 and (Llama2-70B-Chat)
+\cite{wang_rolellm_2023} evaluate chatbots based on gpt-3.5-turbo and GLMPro
+\cite{liu_agentbench_2023} AgentBench Evaluation Benchmark
+
+Frameworks for developing agents:
+- Langchain Agents
+- AutoGen
+- CrewAI
+
+
+
+
+
+\section{Experimental Setup}
+
+\subsection{Research Design and Methodology}
+
+Here goes general information, the approach and an explanation of our evaluation methods (quantitative and qualitative).
+
+\subsection{Negotiation Setup}
+
+Here the setup for the negotiations (fixed-length and open-ended).
+
+\subsection{Interview Setup}
+
+Here the setup for evaluation agent.
+
+\subsection{Parsing}
+
+Here info about our parsing heuristic both for conversations and interviews.
+
+\section{Results}
+
+\subsection{Quantitative}
+
+Quantitative Results.
+
+\subsection{Qualitative}
+
+Qualitative Results.
+
+\section{Limitation}
+
+Limitations here.
+
+\section{Conclusion}
+
+Conclusion here.
+
+
 %
 % ---- Bibliography ----
 %
 % BibTeX users should specify bibliography style 'splncs04'.
 % References will then be sorted and formatted in the correct style.
 %
-% \bibliographystyle{splncs04}
+\bibliographystyle{splncs04}
 % \bibliography{mybibliography}
 %
-\begin{thebibliography}{8}
-\bibitem{ref_article1}
-Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
-
-\bibitem{ref_lncs1}
-Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-Springer, Heidelberg (2016). \doi{10.10007/1234567890}
-
-\bibitem{ref_book1}
-Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-Location (1999)
-
-\bibitem{ref_proc1}
-Author, A.-B.: Contribution title. In: 9th International Proceedings
-on Proceedings, pp. 1--2. Publisher, Location (2010)
-
-\bibitem{ref_url1}
-LNCS Homepage, \url{http://www.springer.com/lncs}, last accessed 2023/10/25
-\end{thebibliography}
+\bibliography{hubsim_references}
 \end{document}
