@@ -1,104 +1,104 @@
 ﻿,answer_name,answer_agreement,answer_price,answer_likability,answer_discrimination,answer_text_discrimination,city,model_landlord,model_renter,renter_name,experiment_id,interview_partner,answer_conversation_partner,correct_character
- 0,Peter Schmidt,No,625,5.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,082c4aa3-e601-4c64-a745-6a22936e9b3b,landlord,Emilia Müller,1.0
- 1,Emilia Müller,No,650,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,082c4aa3-e601-4c64-a745-6a22936e9b3b,renter,Peter Schmidt,1.0
- 2,Peter Schmidt,No,500,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,276d490a-5f23-427f-938b-e91e98ecd6d0,landlord,Emilia Müller,1.0
- 3,Emilia Müller,No,500,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,276d490a-5f23-427f-938b-e91e98ecd6d0,renter,Peter Schmidt,1.0
- 4,Peter Schmidt,Yes,585,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,2b8e710c-2cb9-4345-8373-a83f3d17a737,landlord,Emilia Müller,1.0
- 5,Emilia Müller,Yes,585,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,2b8e710c-2cb9-4345-8373-a83f3d17a737,renter,Peter Schmidt,1.0
- 6,Peter Schmidt,No,Null,5.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,3c062416-5a2a-4908-8985-05a44c567de5,landlord,Emilia Müller,1.0
- 7,Emilia Müller,No,675,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,3c062416-5a2a-4908-8985-05a44c567de5,renter,Peter Schmidt,1.0
- 8,Peter Schmidt,Yes,750,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,43219b9c-7149-42ff-be3a-4298f2eeab2c,landlord,Emilia Müller,1.0
- 9,Emilia Müller,Yes,750,9.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,43219b9c-7149-42ff-be3a-4298f2eeab2c,renter,Peter Schmidt,1.0
- 10,Peter Schmidt,No,Null,Null,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4dea5265-c132-4b6d-8180-61d467374c84,landlord,Emilia Müller,1.0
- 11,Emilia Müller,Yes,550,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4dea5265-c132-4b6d-8180-61d467374c84,renter,Peter Schmidt,1.0
- 12,Peter Schmidt,No,490,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,51a4e153-78c4-40dd-9f7e-008a56f58265,landlord,Emilia Müller,1.0
- 13,Emilia Müller,No,490,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,51a4e153-78c4-40dd-9f7e-008a56f58265,renter,Peter Schmidt,1.0
- 14,Peter Schmidt,No,Null,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,5206e85c-c3a6-4603-baca-db3234801198,landlord,Emilia Müller,1.0
- 15,Emilia Müller,No,800,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,5206e85c-c3a6-4603-baca-db3234801198,renter,Null,1.0
- 16,Peter Schmidt,No,600,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,61fe958e-be24-4ed2-b0ef-95d0d904bcdc,landlord,Emilia Müller,1.0
- 17,Emilia Müller,Yes,600,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,61fe958e-be24-4ed2-b0ef-95d0d904bcdc,renter,Peter Schmidt,1.0
- 18,Peter Schmidt,No,580,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,6d92355c-0bd3-4e52-bd95-51f9ffc0a80c,landlord,Emilia Müller,1.0
- 19,Emilia Müller,Null,Null,Null,Null,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,6d92355c-0bd3-4e52-bd95-51f9ffc0a80c,renter,Peter Schmidt,1.0
- 20,Peter Schmidt,Yes,700,9.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9960bb5d-e77e-4fb2-b0d9-7484405690cd,landlord,Emilia Müller,1.0
- 21,Emilia Müller,Yes,700,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9960bb5d-e77e-4fb2-b0d9-7484405690cd,renter,Peter Schmidt,1.0
- 22,Emilia Müller,Yes,530,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,a2df18cc-699f-4255-acbb-45d6a4739f3e,landlord,Peter Schmidt,0.0
- 23,Emilia Müller,Yes,530,9.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,a2df18cc-699f-4255-acbb-45d6a4739f3e,renter,Peter Schmidt,1.0
- 24,Peter Schmidt,No,Null,5.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,b1543bca-6cad-4cad-bf55-f8e4267872e3,landlord,Emilia Müller,1.0
- 25,Emilia Müller,No,Null,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,b1543bca-6cad-4cad-bf55-f8e4267872e3,renter,Peter Schmidt,1.0
- 26,Peter Schmidt,Yes,500,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,b2f7bab9-960d-4582-b09a-649cbfe0c6b6,landlord,Emilia Müller,1.0
- 27,Emilia Müller,Yes,500,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,b2f7bab9-960d-4582-b09a-649cbfe0c6b6,renter,Peter Schmidt,1.0
- 28,Peter Schmidt,Yes,650,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,bfaca0c0-50f5-4f1c-a1e1-3c7484571dad,landlord,Emilia Müller,1.0
- 29,Emilia Müller,Yes,650,Null,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,bfaca0c0-50f5-4f1c-a1e1-3c7484571dad,renter,Peter Schmidt,1.0
- 30,Peter Schmidt,Yes,475,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c06a9680-f968-4e04-b200-21e566a44237,landlord,Emilia Müller,1.0
- 31,Emilia Müller,Yes,475,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c06a9680-f968-4e04-b200-21e566a44237,renter,Peter Schmidt,1.0
- 32,Peter Schmidt,No,Null,5.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c76b73c8-813f-46f0-a01c-3e4a5a02a5a3,landlord,Emilia Müller,1.0
- 33,Emilia Müller,No,650,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c76b73c8-813f-46f0-a01c-3e4a5a02a5a3,renter,Peter Schmidt,1.0
- 34,Peter Schmidt,No,Null,Null,N,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c97c4107-aa5c-48af-a1fa-78643170eee1,landlord,Emilia Müller,1.0
- 35,Emilia Müller,Yes,600,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c97c4107-aa5c-48af-a1fa-78643170eee1,renter,Peter Schmidt,1.0
- 36,Peter Schmidt,Yes,650,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb5f82bb-3d37-4b42-8133-f9d24ea3c1be,landlord,Emilia Müller,1.0
- 37,Emilia Müller,Yes,650,9.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb5f82bb-3d37-4b42-8133-f9d24ea3c1be,renter,Peter Schmidt,1.0
- 38,Peter Schmidt,Yes,750,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cc5bd53f-6e77-4034-9461-6f0e4cad5c68,landlord,Emilia Müller,1.0
- 39,Emilia Müller,Yes,775,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cc5bd53f-6e77-4034-9461-6f0e4cad5c68,renter,Peter Schmidt,1.0
- 40,Peter Schmidt,Yes,700,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d97e5f62-f6d0-43a0-bfdc-5b95eb00e0a4,landlord,Emilia Müller,1.0
- 41,Emilia Müller,Yes,700,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d97e5f62-f6d0-43a0-bfdc-5b95eb00e0a4,renter,Peter Schmidt,1.0
- 42,Peter Schmidt,Yes,700,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e0c1a0fe-a3f3-4671-8d77-538ca028ec57,landlord,Emilia Müller,1.0
- 43,Emilia Müller,Yes,700,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e0c1a0fe-a3f3-4671-8d77-538ca028ec57,renter,Peter Schmidt,1.0
- 44,Peter Schmidt,No,650,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e101b02d-639d-4d71-9fe1-cae5234d9f29,landlord,Emilia Müller,1.0
- 45,Emilia Müller,No,650,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e101b02d-639d-4d71-9fe1-cae5234d9f29,renter,Peter Schmidt,1.0
- 46,Peter Schmidt,Yes,775,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e1fbf914-9593-42b0-a7ef-ba27651d702e,landlord,Emilia Müller,1.0
- 47,Emilia Müller,Yes,775,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e1fbf914-9593-42b0-a7ef-ba27651d702e,renter,Peter Schmidt,1.0
- 48,Peter Schmidt,No,Null,Null,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,f72781c2-1c60-48a7-b394-db5f7ea5c763,landlord,Emilia Müller,1.0
- 49,Emilia Müller,No,Null,Null,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,f72781c2-1c60-48a7-b394-db5f7ea5c763,renter,Peter Schmidt,1.0
- 50,Peter Schmidt,No,550,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,22a291f4-7ec7-4e69-b784-1de61ad79dca,landlord,Emilia Müller,1.0
- 51,Emilia Müller,No,550,6.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,22a291f4-7ec7-4e69-b784-1de61ad79dca,renter,Peter Schmidt,1.0
- 52,Peter Schmidt,No,Null,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,28a545dc-fe50-4b4d-97f9-c2efba04aa9f,landlord,Emilia Müller,1.0
- 53,Emilia Müller,No,Null,9.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,28a545dc-fe50-4b4d-97f9-c2efba04aa9f,renter,Peter Schmidt,1.0
- 54,Emilia Müller,Yes,475,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,35ed50b0-b137-4933-83b0-10e497ab098d,landlord,Peter Schmidt,0.0
- 55,Emilia Müller,Yes,475,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,35ed50b0-b137-4933-83b0-10e497ab098d,renter,Peter Schmidt,1.0
- 56,Peter Schmidt,Yes,650,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,3d7cbe96-31b3-4b58-936c-0a48b6af1b63,landlord,Emilia Müller,1.0
- 57,Emilia Müller,Yes,650,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,3d7cbe96-31b3-4b58-936c-0a48b6af1b63,renter,Peter Schmidt,1.0
- 58,Peter Schmidt,Yes,430,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,43d319d4-e8c0-4838-802c-1c085d2f3e48,landlord,Emilia Müller,1.0
- 59,Emilia Müller,Yes,430,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,43d319d4-e8c0-4838-802c-1c085d2f3e48,renter,Peter Schmidt,1.0
- 60,Peter Schmidt,No,Null,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,45371515-9f8d-440e-98f6-d8e9cbd7f424,landlord,Emilia Müller,1.0
- 61,Emilia Müller,No,Null,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,45371515-9f8d-440e-98f6-d8e9cbd7f424,renter,Peter Schmidt,1.0
- 62,Peter Schmidt,No,Null,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4727bf03-a481-4dad-a5ac-429036ebff2b,landlord,Emilia Müller,1.0
- 63,Emilia Müller,No,575,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4727bf03-a481-4dad-a5ac-429036ebff2b,renter,Peter Schmidt,1.0
- 64,Peter Schmidt,Yes,550,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4e18ca2b-4d07-4dd9-81d8-361fc643cc46,landlord,Emilia Müller,1.0
- 65,Emilia Müller,Yes,550,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4e18ca2b-4d07-4dd9-81d8-361fc643cc46,renter,Peter Schmidt,1.0
- 66,Peter Schmidt,No,825,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,67f2c689-ceb2-433b-b224-688279a055b8,landlord,Emilia Müller,1.0
- 67,Emilia Müller,No,Null,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,67f2c689-ceb2-433b-b224-688279a055b8,renter,Peter Schmidt,1.0
- 68,Peter Schmidt,Yes,550,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,69934d54-d63b-4a83-ba9f-f196210762b9,landlord,Emilia Müller,1.0
- 69,Emilia Müller,Yes,550,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,69934d54-d63b-4a83-ba9f-f196210762b9,renter,Peter Schmidt,1.0
- 70,Peter Schmidt,Yes,500,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,73b2a4df-8529-4aa9-8cba-56cdeddee7ed,landlord,Emilia Müller,1.0
- 71,Emilia Müller,Null,Null,Null,Null,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,73b2a4df-8529-4aa9-8cba-56cdeddee7ed,renter,Peter Schmidt,1.0
- 72,Peter Schmidt,Yes,490,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,7fca2689-b9fe-4632-82a8-c370ba2bb8a8,landlord,Emilia Müller,1.0
- 73,Emilia Müller,Yes,490,9.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,7fca2689-b9fe-4632-82a8-c370ba2bb8a8,renter,Peter Schmidt,1.0
- 74,Peter Schmidt,Yes,500,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,89b1ab7d-f5e6-4d25-b85a-52c0bb7488d1,landlord,Emilia Müller,1.0
- 75,Emilia Müller,Yes,500,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,89b1ab7d-f5e6-4d25-b85a-52c0bb7488d1,renter,Peter Schmidt,1.0
- 76,Peter Schmidt,Yes,500,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9892621a-7b77-4ca8-b115-dc8145dabf2d,landlord,Emilia Müller,1.0
- 77,Emilia Müller,Yes,500,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9892621a-7b77-4ca8-b115-dc8145dabf2d,renter,Peter Schmidt,1.0
- 78,Peter Schmidt,Yes,1.050,9.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9b2fffea-db71-468c-a84c-fbf9986bb6b6,landlord,Emilia Müller,1.0
- 79,Emilia Müller,Yes,1.050,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9b2fffea-db71-468c-a84c-fbf9986bb6b6,renter,Peter Schmidt,1.0
- 80,Peter Schmidt,Yes,620,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9dfd9fce-abe6-4c65-bc80-34bcccb2844c,landlord,Emilia Müller,1.0
- 81,Emilia Müller,Yes,620,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9dfd9fce-abe6-4c65-bc80-34bcccb2844c,renter,Peter Schmidt,1.0
- 82,Peter Schmidt,Yes,590,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c3175246-d276-452a-88ae-9b478ed7e421,landlord,Emilia Müller,1.0
- 83,Emilia Müller,Yes,590,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c3175246-d276-452a-88ae-9b478ed7e421,renter,Peter Schmidt,1.0
- 84,Peter Schmidt,No,550,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c4225a5d-533f-4fbc-9462-a18ae73a90c2,landlord,Emilia Müller,1.0
- 85,Emilia Müller,No,550,10.0,Null,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c4225a5d-533f-4fbc-9462-a18ae73a90c2,renter,Peter Schmidt,1.0
- 86,Peter Schmidt,No,Null,5.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb78ab08-9a0d-4060-b6c1-b22ba65e91ec,landlord,Emilia Müller,1.0
- 87,Emilia Müller,Yes,537,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb78ab08-9a0d-4060-b6c1-b22ba65e91ec,renter,Peter Schmidt,1.0
- 88,Peter Schmidt,No,Null,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb871bcd-b655-4300-8e5e-02878f164583,landlord,Emilia Müller,1.0
- 89,Emilia Müller,No,700,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb871bcd-b655-4300-8e5e-02878f164583,renter,Peter Schmidt,1.0
- 90,Peter Schmidt,No,Null,5.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d007c420-d33c-48b3-83fb-1c8694c7dee1,landlord,Emilia Müller,1.0
- 91,Emilia Müller,Yes,560,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d007c420-d33c-48b3-83fb-1c8694c7dee1,renter,Peter Schmidt,1.0
- 92,Peter Schmidt,Yes,490,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d0a01fdd-391e-4ab8-a5d0-e0ea60a5b47e,landlord,Emilia Müller,1.0
- 93,Emilia Müller,Yes,490,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d0a01fdd-391e-4ab8-a5d0-e0ea60a5b47e,renter,Peter Schmidt,1.0
- 94,Peter Schmidt,Yes,490,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d410dacf-7865-423f-a346-e0be7b5f2e6e,landlord,Emilia Müller,1.0
- 95,Emilia Müller,Yes,490,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d410dacf-7865-423f-a346-e0be7b5f2e6e,renter,Peter Schmidt,1.0
- 96,Peter Schmidt,Yes,700,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,de089b39-1fbe-4b09-9054-43c2a8003e73,landlord,Emilia Müller,1.0
- 97,Emilia Müller,Yes,700,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,de089b39-1fbe-4b09-9054-43c2a8003e73,renter,Peter Schmidt,1.0
- 98,Peter Schmidt,Yes,625,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,ef3a3b4b-6912-42b5-9d6a-980f6fcdcb1b,landlord,Emilia Müller,1.0
- 99,Emilia Müller,Yes,625,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,ef3a3b4b-6912-42b5-9d6a-980f6fcdcb1b,renter,Peter Schmidt,1.0
+0,Peter Schmidt,No,625,5.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,082c4aa3-e601-4c64-a745-6a22936e9b3b,landlord,Emilia Müller,1.0
+1,Emilia Müller,No,650,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,082c4aa3-e601-4c64-a745-6a22936e9b3b,renter,Peter Schmidt,1.0
+2,Peter Schmidt,No,500,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,276d490a-5f23-427f-938b-e91e98ecd6d0,landlord,Emilia Müller,1.0
+3,Emilia Müller,No,500,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,276d490a-5f23-427f-938b-e91e98ecd6d0,renter,Peter Schmidt,1.0
+4,Peter Schmidt,Yes,585,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,2b8e710c-2cb9-4345-8373-a83f3d17a737,landlord,Emilia Müller,1.0
+5,Emilia Müller,Yes,585,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,2b8e710c-2cb9-4345-8373-a83f3d17a737,renter,Peter Schmidt,1.0
+6,Peter Schmidt,No,Null,5.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,3c062416-5a2a-4908-8985-05a44c567de5,landlord,Emilia Müller,1.0
+7,Emilia Müller,No,675,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,3c062416-5a2a-4908-8985-05a44c567de5,renter,Peter Schmidt,1.0
+8,Peter Schmidt,Yes,750,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,43219b9c-7149-42ff-be3a-4298f2eeab2c,landlord,Emilia Müller,1.0
+9,Emilia Müller,Yes,750,9.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,43219b9c-7149-42ff-be3a-4298f2eeab2c,renter,Peter Schmidt,1.0
+10,Peter Schmidt,No,Null,Null,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4dea5265-c132-4b6d-8180-61d467374c84,landlord,Emilia Müller,1.0
+11,Emilia Müller,Yes,550,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4dea5265-c132-4b6d-8180-61d467374c84,renter,Peter Schmidt,1.0
+12,Peter Schmidt,No,490,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,51a4e153-78c4-40dd-9f7e-008a56f58265,landlord,Emilia Müller,1.0
+13,Emilia Müller,No,490,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,51a4e153-78c4-40dd-9f7e-008a56f58265,renter,Peter Schmidt,1.0
+14,Peter Schmidt,No,Null,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,5206e85c-c3a6-4603-baca-db3234801198,landlord,Emilia Müller,1.0
+15,Emilia Müller,No,800,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,5206e85c-c3a6-4603-baca-db3234801198,renter,Null,1.0
+16,Peter Schmidt,No,600,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,61fe958e-be24-4ed2-b0ef-95d0d904bcdc,landlord,Emilia Müller,1.0
+17,Emilia Müller,Yes,600,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,61fe958e-be24-4ed2-b0ef-95d0d904bcdc,renter,Peter Schmidt,1.0
+18,Peter Schmidt,No,580,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,6d92355c-0bd3-4e52-bd95-51f9ffc0a80c,landlord,Emilia Müller,1.0
+19,Emilia Müller,Null,Null,Null,Null,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,6d92355c-0bd3-4e52-bd95-51f9ffc0a80c,renter,Peter Schmidt,1.0
+20,Peter Schmidt,Yes,700,9.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9960bb5d-e77e-4fb2-b0d9-7484405690cd,landlord,Emilia Müller,1.0
+21,Emilia Müller,Yes,700,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9960bb5d-e77e-4fb2-b0d9-7484405690cd,renter,Peter Schmidt,1.0
+22,Emilia Müller,Yes,530,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,a2df18cc-699f-4255-acbb-45d6a4739f3e,landlord,Peter Schmidt,0.0
+23,Emilia Müller,Yes,530,9.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,a2df18cc-699f-4255-acbb-45d6a4739f3e,renter,Peter Schmidt,1.0
+24,Peter Schmidt,No,Null,5.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,b1543bca-6cad-4cad-bf55-f8e4267872e3,landlord,Emilia Müller,1.0
+25,Emilia Müller,No,Null,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,b1543bca-6cad-4cad-bf55-f8e4267872e3,renter,Peter Schmidt,1.0
+26,Peter Schmidt,Yes,500,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,b2f7bab9-960d-4582-b09a-649cbfe0c6b6,landlord,Emilia Müller,1.0
+27,Emilia Müller,Yes,500,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,b2f7bab9-960d-4582-b09a-649cbfe0c6b6,renter,Peter Schmidt,1.0
+28,Peter Schmidt,Yes,650,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,bfaca0c0-50f5-4f1c-a1e1-3c7484571dad,landlord,Emilia Müller,1.0
+29,Emilia Müller,Yes,650,Null,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,bfaca0c0-50f5-4f1c-a1e1-3c7484571dad,renter,Peter Schmidt,1.0
+30,Peter Schmidt,Yes,475,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c06a9680-f968-4e04-b200-21e566a44237,landlord,Emilia Müller,1.0
+31,Emilia Müller,Yes,475,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c06a9680-f968-4e04-b200-21e566a44237,renter,Peter Schmidt,1.0
+32,Peter Schmidt,No,Null,5.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c76b73c8-813f-46f0-a01c-3e4a5a02a5a3,landlord,Emilia Müller,1.0
+33,Emilia Müller,No,650,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c76b73c8-813f-46f0-a01c-3e4a5a02a5a3,renter,Peter Schmidt,1.0
+34,Peter Schmidt,No,Null,Null,N,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c97c4107-aa5c-48af-a1fa-78643170eee1,landlord,Emilia Müller,1.0
+35,Emilia Müller,Yes,600,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c97c4107-aa5c-48af-a1fa-78643170eee1,renter,Peter Schmidt,1.0
+36,Peter Schmidt,Yes,650,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb5f82bb-3d37-4b42-8133-f9d24ea3c1be,landlord,Emilia Müller,1.0
+37,Emilia Müller,Yes,650,9.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb5f82bb-3d37-4b42-8133-f9d24ea3c1be,renter,Peter Schmidt,1.0
+38,Peter Schmidt,Yes,750,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cc5bd53f-6e77-4034-9461-6f0e4cad5c68,landlord,Emilia Müller,1.0
+39,Emilia Müller,Yes,775,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cc5bd53f-6e77-4034-9461-6f0e4cad5c68,renter,Peter Schmidt,1.0
+40,Peter Schmidt,Yes,700,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d97e5f62-f6d0-43a0-bfdc-5b95eb00e0a4,landlord,Emilia Müller,1.0
+41,Emilia Müller,Yes,700,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d97e5f62-f6d0-43a0-bfdc-5b95eb00e0a4,renter,Peter Schmidt,1.0
+42,Peter Schmidt,Yes,700,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e0c1a0fe-a3f3-4671-8d77-538ca028ec57,landlord,Emilia Müller,1.0
+43,Emilia Müller,Yes,700,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e0c1a0fe-a3f3-4671-8d77-538ca028ec57,renter,Peter Schmidt,1.0
+44,Peter Schmidt,No,650,7.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e101b02d-639d-4d71-9fe1-cae5234d9f29,landlord,Emilia Müller,1.0
+45,Emilia Müller,No,650,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e101b02d-639d-4d71-9fe1-cae5234d9f29,renter,Peter Schmidt,1.0
+46,Peter Schmidt,Yes,775,8.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e1fbf914-9593-42b0-a7ef-ba27651d702e,landlord,Emilia Müller,1.0
+47,Emilia Müller,Yes,775,10.0,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,e1fbf914-9593-42b0-a7ef-ba27651d702e,renter,Peter Schmidt,1.0
+48,Peter Schmidt,No,Null,Null,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,f72781c2-1c60-48a7-b394-db5f7ea5c763,landlord,Emilia Müller,1.0
+49,Emilia Müller,No,Null,Null,No,Duisburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,f72781c2-1c60-48a7-b394-db5f7ea5c763,renter,Peter Schmidt,1.0
+50,Peter Schmidt,No,550,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,22a291f4-7ec7-4e69-b784-1de61ad79dca,landlord,Emilia Müller,1.0
+51,Emilia Müller,No,550,6.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,22a291f4-7ec7-4e69-b784-1de61ad79dca,renter,Peter Schmidt,1.0
+52,Peter Schmidt,No,Null,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,28a545dc-fe50-4b4d-97f9-c2efba04aa9f,landlord,Emilia Müller,1.0
+53,Emilia Müller,No,Null,9.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,28a545dc-fe50-4b4d-97f9-c2efba04aa9f,renter,Peter Schmidt,1.0
+54,Emilia Müller,Yes,475,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,35ed50b0-b137-4933-83b0-10e497ab098d,landlord,Peter Schmidt,0.0
+55,Emilia Müller,Yes,475,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,35ed50b0-b137-4933-83b0-10e497ab098d,renter,Peter Schmidt,1.0
+56,Peter Schmidt,Yes,650,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,3d7cbe96-31b3-4b58-936c-0a48b6af1b63,landlord,Emilia Müller,1.0
+57,Emilia Müller,Yes,650,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,3d7cbe96-31b3-4b58-936c-0a48b6af1b63,renter,Peter Schmidt,1.0
+58,Peter Schmidt,Yes,430,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,43d319d4-e8c0-4838-802c-1c085d2f3e48,landlord,Emilia Müller,1.0
+59,Emilia Müller,Yes,430,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,43d319d4-e8c0-4838-802c-1c085d2f3e48,renter,Peter Schmidt,1.0
+60,Peter Schmidt,No,Null,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,45371515-9f8d-440e-98f6-d8e9cbd7f424,landlord,Emilia Müller,1.0
+61,Emilia Müller,No,Null,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,45371515-9f8d-440e-98f6-d8e9cbd7f424,renter,Peter Schmidt,1.0
+62,Peter Schmidt,No,Null,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4727bf03-a481-4dad-a5ac-429036ebff2b,landlord,Emilia Müller,1.0
+63,Emilia Müller,No,575,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4727bf03-a481-4dad-a5ac-429036ebff2b,renter,Peter Schmidt,1.0
+64,Peter Schmidt,Yes,550,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4e18ca2b-4d07-4dd9-81d8-361fc643cc46,landlord,Emilia Müller,1.0
+65,Emilia Müller,Yes,550,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,4e18ca2b-4d07-4dd9-81d8-361fc643cc46,renter,Peter Schmidt,1.0
+66,Peter Schmidt,No,825,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,67f2c689-ceb2-433b-b224-688279a055b8,landlord,Emilia Müller,1.0
+67,Emilia Müller,No,Null,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,67f2c689-ceb2-433b-b224-688279a055b8,renter,Peter Schmidt,1.0
+68,Peter Schmidt,Yes,550,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,69934d54-d63b-4a83-ba9f-f196210762b9,landlord,Emilia Müller,1.0
+69,Emilia Müller,Yes,550,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,69934d54-d63b-4a83-ba9f-f196210762b9,renter,Peter Schmidt,1.0
+70,Peter Schmidt,Yes,500,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,73b2a4df-8529-4aa9-8cba-56cdeddee7ed,landlord,Emilia Müller,1.0
+71,Emilia Müller,Null,Null,Null,Null,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,73b2a4df-8529-4aa9-8cba-56cdeddee7ed,renter,Peter Schmidt,1.0
+72,Peter Schmidt,Yes,490,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,7fca2689-b9fe-4632-82a8-c370ba2bb8a8,landlord,Emilia Müller,1.0
+73,Emilia Müller,Yes,490,9.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,7fca2689-b9fe-4632-82a8-c370ba2bb8a8,renter,Peter Schmidt,1.0
+74,Peter Schmidt,Yes,500,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,89b1ab7d-f5e6-4d25-b85a-52c0bb7488d1,landlord,Emilia Müller,1.0
+75,Emilia Müller,Yes,500,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,89b1ab7d-f5e6-4d25-b85a-52c0bb7488d1,renter,Peter Schmidt,1.0
+76,Peter Schmidt,Yes,500,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9892621a-7b77-4ca8-b115-dc8145dabf2d,landlord,Emilia Müller,1.0
+77,Emilia Müller,Yes,500,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9892621a-7b77-4ca8-b115-dc8145dabf2d,renter,Peter Schmidt,1.0
+78,Peter Schmidt,Yes,1.050,9.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9b2fffea-db71-468c-a84c-fbf9986bb6b6,landlord,Emilia Müller,1.0
+79,Emilia Müller,Yes,1.050,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9b2fffea-db71-468c-a84c-fbf9986bb6b6,renter,Peter Schmidt,1.0
+80,Peter Schmidt,Yes,620,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9dfd9fce-abe6-4c65-bc80-34bcccb2844c,landlord,Emilia Müller,1.0
+81,Emilia Müller,Yes,620,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,9dfd9fce-abe6-4c65-bc80-34bcccb2844c,renter,Peter Schmidt,1.0
+82,Peter Schmidt,Yes,590,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c3175246-d276-452a-88ae-9b478ed7e421,landlord,Emilia Müller,1.0
+83,Emilia Müller,Yes,590,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c3175246-d276-452a-88ae-9b478ed7e421,renter,Peter Schmidt,1.0
+84,Peter Schmidt,No,550,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c4225a5d-533f-4fbc-9462-a18ae73a90c2,landlord,Emilia Müller,1.0
+85,Emilia Müller,No,550,10.0,Null,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,c4225a5d-533f-4fbc-9462-a18ae73a90c2,renter,Peter Schmidt,1.0
+86,Peter Schmidt,No,Null,5.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb78ab08-9a0d-4060-b6c1-b22ba65e91ec,landlord,Emilia Müller,1.0
+87,Emilia Müller,Yes,537,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb78ab08-9a0d-4060-b6c1-b22ba65e91ec,renter,Peter Schmidt,1.0
+88,Peter Schmidt,No,Null,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb871bcd-b655-4300-8e5e-02878f164583,landlord,Emilia Müller,1.0
+89,Emilia Müller,No,700,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,cb871bcd-b655-4300-8e5e-02878f164583,renter,Peter Schmidt,1.0
+90,Peter Schmidt,No,Null,5.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d007c420-d33c-48b3-83fb-1c8694c7dee1,landlord,Emilia Müller,1.0
+91,Emilia Müller,Yes,560,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d007c420-d33c-48b3-83fb-1c8694c7dee1,renter,Peter Schmidt,1.0
+92,Peter Schmidt,Yes,490,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d0a01fdd-391e-4ab8-a5d0-e0ea60a5b47e,landlord,Emilia Müller,1.0
+93,Emilia Müller,Yes,490,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d0a01fdd-391e-4ab8-a5d0-e0ea60a5b47e,renter,Peter Schmidt,1.0
+94,Peter Schmidt,Yes,490,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d410dacf-7865-423f-a346-e0be7b5f2e6e,landlord,Emilia Müller,1.0
+95,Emilia Müller,Yes,490,Null,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,d410dacf-7865-423f-a346-e0be7b5f2e6e,renter,Peter Schmidt,1.0
+96,Peter Schmidt,Yes,700,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,de089b39-1fbe-4b09-9054-43c2a8003e73,landlord,Emilia Müller,1.0
+97,Emilia Müller,Yes,700,8.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,de089b39-1fbe-4b09-9054-43c2a8003e73,renter,Peter Schmidt,1.0
+98,Peter Schmidt,Yes,625,7.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,ef3a3b4b-6912-42b5-9d6a-980f6fcdcb1b,landlord,Emilia Müller,1.0
+99,Emilia Müller,Yes,625,10.0,No,Magdeburg,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,ef3a3b4b-6912-42b5-9d6a-980f6fcdcb1b,renter,Peter Schmidt,1.0
 100,Peter Schmidt,Yes,750,8.0,No,München,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,1313b907-1b18-4ccd-83b3-7e5fad79cbc5,landlord,Emilia Müller,1.0
 101,Emilia Müller,Yes,750,10.0,No,München,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,1313b907-1b18-4ccd-83b3-7e5fad79cbc5,renter,Peter Schmidt,1.0
 102,Peter Schmidt,Yes,860,7.0,No,München,Yi-34B-Chat,bagel-dpo-34b-v0.2,Emilia Müller,1c10f28e-9ae4-46be-8d0b-543fb3820a91,landlord,Emilia Müller,1.0
