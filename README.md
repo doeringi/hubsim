@@ -1,4 +1,4 @@
-# Simulating Human Behavior With Open Source
+# Simulating Human Behavior With Open Source Large Language Models In Negotiation Settings
 This repository includes all code and ressources from the Masters Team Project at University of Mannheim.
 
 We comprehensively analyze and evaluate contemporary open
