@@ -1,0 +1,52 @@
+[
+    {
+        "content": "Hello Mister Schmidt, my name is Emilia M\u00fcller from Germany. Thanks for inviting me to see the apartment in Duisburg. Let's talk about the rental price.",
+        "role": "user",
+        "name": "Emilia M\u00fcller from Germany"
+    },
+    {
+        "content": "Hello, Ms. M\u00fcller. As we both know, the apartment is a newly built unfurnished 50 square meter one-bedroom apartment in the city center. It's close to all important facilities like the supermarket and public transportation. Now, I'm sure you can appreciate that such a prime location comes with a certain value. How much do you think this apartment is worth, Ms. M\u00fcller?",
+        "role": "user",
+        "name": "Peter Schmidt from Germany"
+    },
+    {
+        "content": "That sounds great, mister Schmidt. I would like to rent the apartment for 500 euros per month. It's in the city center, so it's not surprising that it costs a little more. But I think that's a fair price.",
+        "role": "user",
+        "name": "Emilia M\u00fcller from Germany"
+    },
+    {
+        "content": "Ms. M\u00fcller, 500 euros per month is certainly a fair price for an apartment in the city center. However, I think this apartment, with its prime location and modern amenities, is worth more. What do you think about 800 euros per month? It's a significant investment, I know, but I'm confident that you'll appreciate the value of this apartment.",
+        "role": "user",
+        "name": "Peter Schmidt from Germany"
+    },
+    {
+        "content": "That's too high for me, mister Schmidt. I'm a student and I don't have a lot of money. I think 650 euros per month would be more reasonable. That's a good middle ground between your offer and my initial offer.",
+        "role": "user",
+        "name": "Emilia M\u00fcller from Germany"
+    },
+    {
+        "content": "Ms. M\u00fcller, 650 euros per month is a considerable amount, and I appreciate your willingness to meet in the middle. However, as I mentioned, this apartment is in high demand due to its prime location and modern amenities. I think it's worth a bit more. How about 750 euros per month? It's a fair compromise, and I'm sure you'll appreciate the value of this apartment.",
+        "role": "user",
+        "name": "Peter Schmidt from Germany"
+    },
+    {
+        "content": "That sounds more reasonable, mister Schmidt. I agree to the price of 700 euros per month. It's a good middle ground between your offer and my final offer. I think that's a fair price for both of us.",
+        "role": "user",
+        "name": "Emilia M\u00fcller from Germany"
+    },
+    {
+        "content": "I agree to the price of [700] Euro! Congratulations, Ms. M\u00fcllER. I'm sure you'll enjoy your stay in the apartment. Let's proceed with the lease agreement.",
+        "role": "user",
+        "name": "Peter Schmidt from Germany"
+    },
+    {
+        "content": "Thank you, mister Schmidt. I'm looking forward to renting the apartment. Let's sign the lease agreement and I can move in as soon as possible.",
+        "role": "user",
+        "name": "Emilia M\u00fcller from Germany"
+    },
+    {
+        "content": "TERMINATE",
+        "role": "user",
+        "name": "Peter Schmidt from Germany"
+    }
+]
