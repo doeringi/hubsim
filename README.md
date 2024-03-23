@@ -14,7 +14,7 @@ For more detailed information please refer to the paper in the folder [final-rep
 
 ### Contributors
 - Nico Döring
-- Jens Rupprecht
 - MohammadHossein Khezrian
+- Jens Rupprecht
 - Amin Mohammad
 
